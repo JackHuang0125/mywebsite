@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>暘的世界</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 暘的世界</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 08 Jan 2025 16:38:03 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2nd post</title>
+      <link>http://localhost:1313/posts/helloworld/secondpage/</link>
+      <pubDate>Wed, 08 Jan 2025 16:38:03 +0800</pubDate>
+      <guid>http://localhost:1313/posts/helloworld/secondpage/</guid>
+      <description>&lt;p&gt;123&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My 1st post</title>
+      <link>http://localhost:1313/posts/helloworld/page/</link>
+      <pubDate>Wed, 08 Jan 2025 16:30:03 +0800</pubDate>
+      <guid>http://localhost:1313/posts/helloworld/page/</guid>
+      <description>&lt;h1 id=&#34;這是我的第一篇&#34;&gt;這是我的第一篇&lt;/h1&gt;
+&lt;h2 id=&#34;這是我的第二篇&#34;&gt;這是我的第二篇&lt;/h2&gt;
+&lt;h3 id=&#34;這是我的第三篇&#34;&gt;這是我的第三篇&lt;/h3&gt;</description>
+    </item>
+  </channel>
+</rss>
