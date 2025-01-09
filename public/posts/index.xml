@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on 暘的世界</title>
+    <title>Posts on Yang&#39;s World</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on 暘的世界</description>
+    <description>Recent content in Posts on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 08 Jan 2025 16:38:03 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2025 15:30:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Learning Record</title>
+      <link>http://localhost:1313/posts/my-learning-record/</link>
+      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-learning-record/</guid>
+      <description></description>
+    </item>
     <item>
       <title>My 2nd post</title>
       <link>http://localhost:1313/posts/helloworld/secondpage/</link>
       <pubDate>Wed, 08 Jan 2025 16:38:03 +0800</pubDate>
       <guid>http://localhost:1313/posts/helloworld/secondpage/</guid>
-      <description>&lt;p&gt;123&lt;/p&gt;</description>
+      <description>&lt;p&gt;2025/01/09&lt;/p&gt;
+&lt;p&gt;瞭解到HUGO有三種語法&lt;/p&gt;
+&lt;p&gt;分別是：JSON、TOML、YAML&lt;/p&gt;
+&lt;p&gt;因為TOML的內容格式類似PYTHON的，而我本人也比較習慣PYTHON的語法&lt;/p&gt;
+&lt;p&gt;所以採用TOML的語法，並將全部的語法改為跟TOML的&lt;/p&gt;</description>
     </item>
     <item>
       <title>My 1st post</title>

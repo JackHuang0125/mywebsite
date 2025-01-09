@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on 暘的世界</title>
+    <title>Tags on Yang&#39;s World</title>
     <link>http://localhost:1313/tags/</link>
-    <description>Recent content in Tags on 暘的世界</description>
+    <description>Recent content in Tags on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
+    <lastBuildDate>Thu, 09 Jan 2025 15:30:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Learning</title>
+      <link>http://localhost:1313/tags/hugo-learning/</link>
+      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/hugo-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning Record</title>
+      <link>http://localhost:1313/tags/learning-record/</link>
+      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/learning-record/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Css</title>
+      <link>http://localhost:1313/tags/css/</link>
+      <pubDate>Wed, 08 Jan 2025 16:30:03 +0800</pubDate>
+      <guid>http://localhost:1313/tags/css/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>http://localhost:1313/tags/html/</link>
+      <pubDate>Wed, 08 Jan 2025 16:30:03 +0800</pubDate>
+      <guid>http://localhost:1313/tags/html/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hugo  on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/hugo-/</link>
+    <description>Recent content in Hugo  on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Thu, 09 Jan 2025 15:30:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hugo-/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/my-learning-record/</link>
+      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-learning-record/</guid>
+      <description>&lt;h1 id=&#34;這是我的第一篇&#34;&gt;這是我的第一篇&lt;/h1&gt;</description>
+    </item>
+  </channel>
+</rss>

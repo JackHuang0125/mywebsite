@@ -1,23 +1,64 @@
-baseURL = 'https://example.org/'
-languageCode = 'zh-TW'
-title = '暘的世界'
+baseURL = "https://example.org/"
+languageCode = "zh-TW"
+title = "Yang's World"
 theme = "PaperMo"
 
 [menu]
     [[menu.main]]
     identifier = "categories"
     name = "Categories"
-    url = "/categories"
+    url = "/categories/"
     weight = 10
 
     [[menu.main]]
     identifier = "tags"
-    name = "很多標籤"
-    url = "/tags"
+    name = "Tags"
+    url = "/tags/"
     weight = 10
 
     [[menu.main]]
-    identifier = "archievs"
-    name = "很多檔案"
-    url = "/archives"
+    identifier = "archives"
+    name = "Archives"
+    url = "/archives/"
     weight = 20
+   
+    [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search"
+    weight = 15
+
+[params]
+    ShowShareButtons = true
+    [params.profileMode]
+    enabled = true
+    title = "Hi There" # optional default will be site title
+    subtitle = "This is my website, BTW, I'm a beginner."
+    imageUrl = "ID.jpg" # optional
+    imageTitle = "this is a title" # optional
+    imageWidth = 200 # custom size
+    imageHeight = 200 # custom size
+    [[params.buttons]]
+    name = "Archive"
+    url = "/archive"
+    [[params.buttons]]
+    name = "Github"
+    url = "https://github.com/"
+
+    [[params.socialIcons]]
+    name = "x"
+    url = "https://x.com/"
+    [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/"
+
+    [params.cover]
+    linkFullImages = true
+
+
+
+
+
+
+
+
