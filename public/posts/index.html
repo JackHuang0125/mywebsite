@@ -57,6 +57,25 @@
 
     </style>
 </noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+        ]
+    });
+});
+</script>
+
 </head>
 
 <body class="list" id="top">
@@ -130,10 +149,58 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayesian1.jpg" alt="20250113">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Hirarchical bayesian modeling
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Bayesian hierarchical modeling，譯為「貝氏分層建模」
+針對多個層級分析的一套統計方法 「Hierarchical modeling is used with information is available on several different levels of observational units」
+可以對多個不同層級的觀測單位的資訊進行分析，例如：
+– 每個國家的每日感染病例的時間概況，單位是國家
+– 多個油井產量的遞減曲線分析（油氣產量），單位是油藏區的油井
+引自維基百科
+公式理論 Bayes’ theorem:
+the updated probability statements about $\theta_j$, given the occurence of event $y$,
+using the basic property of conditional probability, the posterior distribution will yield: $$P(\theta \mid y) = \frac{P(\theta, y)}{P(y)} = \frac{P(y \mid \theta)P(\theta)}{P(y)}$$ so, we can say that: $$P(\theta \mid y) \propto P(y \mid \theta)P(\theta)$$ Hierarchical models:
+Bayesian hierarchical modeling makes use of two important concepts in deriving the posterior distribution namely:
+(1) Hyperparameters: parameters of prior distribution
+先驗分配的參數（超參數／超母數）
+(2) Hyperdisrtibution: distribution of hyperparameters
+超參數的分配 例如：我們需要建模學校的學生測驗成績
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-13 15:00:00 +0800 CST'>January 13, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Hirarchical bayesian modeling" href="http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Expectation maximization algorithm
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Expectation-maximization algorithm
+又翻譯為「最大期望值演算法」 經過兩個步驟交替進行計算：
+第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值
+第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值 M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行
+引自維基百科 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-12 11:00:00 +0800 CST'>January 12, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/webcrawler.jpg" alt="20250110">
 </figure>
   <header class="entry-header">
-    <h2 class="entry-hint-parent">酒譜爬蟲教學
+    <h2 class="entry-hint-parent">cocktail webcrawler
     </h2>
   </header>
   <div class="entry-content">
@@ -146,7 +213,7 @@ import requests as req# 向客戶端要求網址 from bs4 import BeautifulSoup 
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-01-10 13:30:00 +0800 CST'>January 10, 2025</span></footer>
-  <a class="entry-link" aria-label="post link to 酒譜爬蟲教學" href="http://localhost:1313/posts/%E9%85%92%E8%AD%9C%E7%88%AC%E8%9F%B2%E6%95%99%E5%AD%B8/"></a>
+  <a class="entry-link" aria-label="post link to cocktail webcrawler" href="http://localhost:1313/posts/%E9%85%92%E8%AD%9C%E7%88%AC%E8%9F%B2%E6%95%99%E5%AD%B8/"></a>
 </article>
 
 <article class="post-entry"> 

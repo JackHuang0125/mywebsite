@@ -9,11 +9,79 @@
     <lastBuildDate>Fri, 10 Jan 2025 13:30:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/ingredients/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>酒譜爬蟲教學</title>
+      <title>cocktail webcrawler</title>
       <link>http://localhost:1313/posts/%E9%85%92%E8%AD%9C%E7%88%AC%E8%9F%B2%E6%95%99%E5%AD%B8/</link>
       <pubDate>Fri, 10 Jan 2025 13:30:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/%E9%85%92%E8%AD%9C%E7%88%AC%E8%9F%B2%E6%95%99%E5%AD%B8/</guid>
-      <description></description>
+      <description>&lt;p&gt;&lt;strong&gt;這是給我自己的一份教學，以免日子久了忘記怎麼爬蟲，同時也是一篇學習紀錄&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;擁有一個可以寫code的環境，網路上很多安裝環境的教學&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;我是用anoconda的vs code寫code的&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import requests as req
+# 向客戶端要求網址  
+from bs4 import BeautifulSoup as B
+# 索取網址內容  
+import pandas as pd
+# 最後將結果輸出為CSV檔
+import time
+# 避免爬蟲時被抓到是爬蟲，所以移用這個延長每次爬蟲時間，假裝自己是人類
+import random
+# 延遲隨機時間用的
+builder_url = &amp;#39;https://www.theeducatedbarfly.com/cocktail-builder/&amp;#39;
+# 我是用 **cocktail builder** 這個網站來爬蟲我要的酒單  
+header = {&amp;#39;User-Agent&amp;#39;: &amp;#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36&amp;#39;}
+# 起初在爬的時候有發現跑不出資料，所以新增header來假裝我是人類，網路上也有很多如何在瀏覽器找header的教學
+resp = req.get(builder_url, headers=header)
+# 建立抓取url的回應變數
+cocktail_name_list = []
+# 建立空清單，將抓取到的資料先放進來，以便最後做成dataframe
+if resp.status_code == 200:
+# 確定你的url是可以連線的
+    soup = B(resp.text, &amp;#39;html.parser&amp;#39;)
+    # 建立爬蟲的頭頭，後面的html.parser是每次建立都要有，好像是用來解析html的功能
+    for cocktail_name in soup.find_all(&amp;#39;div&amp;#39;, class_=&amp;#34;wpupg-item-title wpupg-block-text-bold&amp;#34;):
+    # 打開網頁按下F2，按下ctrl+shift+c進入選取網頁元素模式，點選任一調酒，會指引到該調酒的block
+    # 你會發現所有的調酒名稱都在&amp;#39;div&amp;#39;, class_=&amp;#34;wpupg-item-title wpupg-block-text-bold&amp;#34;這個標籤底下，所以我們利用find_all遍歷該標籤
+        name = cocktail_name.text.strip()
+        # 調酒名稱都在&amp;#39;div&amp;#39;, class_=&amp;#34;wpupg-item-title wpupg-block-text-bold&amp;#34;的標籤的text內容中，strip()是去掉text前後多餘的空格
+        if name:
+        # 確定該標籤有內容才抓，沒有就不抓
+            cocktail_name_list.append(name)
+            # 抓到修飾後的text並放入剛剛建立的list
+    time.sleep(random.uniform(1,3))
+    # 每次抓完一個就等待 1~3 秒
+
+cocktail_name_df = pd.DataFrame(cocktail_name_list, columns=[&amp;#39;Name&amp;#39;])
+# 將抓完後的清list建立成一個Dataframe，以Name當作該欄位的名稱
+
+cocktail_data = []
+# 這是最後的調酒名稱+該調酒的材料的空清單
+
+for name in cocktail_name_df[&amp;#39;Name&amp;#39;]:
+    urls = f&amp;#39;https://www.theeducatedbarfly.com/{name.replace(&amp;#34; &amp;#34;, &amp;#34;-&amp;#34;).lower()}/&amp;#39;
+    # 建立每個調酒的url，點進去隨便一個調酒，你會發現網址是https://www.theeducatedbarfly.com/xxx-xxx/
+    # xxx是該調酒的名稱，只是我們剛剛的調酒名稱list有大寫而且中間是空格不是-，所以用replace將空格替換成-，且轉為小寫
+    resp = req.get(urls, headers=header)
+    if resp.status_code == 200:
+        soup = B(resp.text, &amp;#39;html.parser&amp;#39;)
+        # 查找所有具有指定 class 的 &amp;lt;span&amp;gt; 元素
+        ingredients = soup.find_all(&amp;#39;span&amp;#39;, class_=&amp;#39;wprm-recipe-ingredient-name&amp;#39;)
+        ingredient_name_list = []
+        for ingredient in ingredients:
+        # 提取&amp;lt;a&amp;gt;標籤的文字內容
+            ingredient_name = ingredient.find(&amp;#39;a&amp;#39;)
+            if ingredient_name:  
+            # 確保&amp;lt;a&amp;gt;存在
+                ingredient_name_list.append(ingredient_name.text.strip())
+
+        cocktail_data.append({&amp;#39;Cocktail Name&amp;#39;: name, &amp;#39;Ingredients&amp;#39;: &amp;#34;, &amp;#34;.join(ingredient_name_list)})
+        # 最後就是將剛剛抓到的Name跟這個Inredients清單中每個素材加入剛剛建立的加入剛剛建立的cocktail_data清單中
+    time.sleep(random.uniform(1,3))
+
+cocktail_df = pd.DataFrame(cocktail_data)
+# 最後的最後將list轉為Dataframe並用pd.to_csv輸出成csv檔，結束這回合
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;以上是我提醒自己的爬蟲教學&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;有任何疑問歡迎提出&lt;/strong&gt;&lt;br&gt;
+&lt;del&gt;雖然我還沒有建立留言板就是了&lt;/del&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

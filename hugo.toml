@@ -31,7 +31,8 @@ theme = "PaperMo"
 [params]
     ShowShareButtons = true
     ShowBreadCrumbs = true
-
+    math = true
+    
     [params.profileMode]
     enabled = true
     title = "Hi There" # optional default will be site title
