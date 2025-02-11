@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Learninig Record on Yang&#39;s World</title>
-    <link>http://localhost:1313/tags/learninig-record/</link>
-    <description>Recent content in Learninig Record on Yang&#39;s World</description>
+    <title>Text Mining on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/text-mining/</link>
+    <description>Recent content in Text Mining on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
     <lastBuildDate>Sun, 26 Jan 2025 13:45:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/learninig-record/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Text Mining with R: Chapter4</title>
       <link>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
@@ -49,58 +49,6 @@ $$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)
 &lt;li&gt;出現頻率第一名的單詞的次數會是出現頻率第二名的單詞的次數的兩倍，會是出現頻率第三名的單詞的次數的三倍&amp;hellip;依此類推，會是出現頻率第 N 名的單詞的次數的 N 倍&lt;/li&gt;
 &lt;li&gt;若將排名 x 與出現頻率 y 取對數，即 logx 、 logy ，若整個文檔的坐標點標出來接近一直線，則該文檔符合 Zipf&amp;rsquo;s law&lt;/li&gt;
 &lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>Hirarchical bayesian modeling</title>
-      <link>http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</link>
-      <pubDate>Mon, 13 Jan 2025 15:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Bayesian hierarchical modeling，譯為「貝氏分層建模」&lt;br&gt;
-針對多個層級分析的一套統計方法&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;「Hierarchical modeling is used with information is available on &lt;strong&gt;several different levels&lt;/strong&gt; of observational &lt;strong&gt;units&lt;/strong&gt;」&lt;br&gt;
-可以對多個不同層級的觀測單位的資訊進行分析，例如：&lt;br&gt;
-&amp;ndash; 每個國家的每日感染病例的時間概況，單位是國家&lt;br&gt;
-&amp;ndash; 多個油井產量的遞減曲線分析（油氣產量），單位是油藏區的油井&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;strong&gt;引自維基百科&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;公式理論&#34;&gt;公式理論&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Bayes&amp;rsquo; theorem:&lt;br&gt;
-the updated probability statements about $\theta_j$, given the occurence of event $y$,&lt;br&gt;
-using the basic property of conditional probability, the posterior distribution will yield:
-$$P(\theta \mid y) = \frac{P(\theta, y)}{P(y)} = \frac{P(y \mid \theta)P(\theta)}{P(y)}$$
-so, we can say that:
-$$P(\theta \mid y) \propto P(y \mid \theta)P(\theta)$$&lt;/li&gt;
-&lt;li&gt;Hierarchical models:&lt;br&gt;
-Bayesian hierarchical modeling makes use of two important concepts in deriving the posterior distribution namely:&lt;br&gt;
-(1) &lt;strong&gt;Hyperparameters&lt;/strong&gt;: parameters of prior distribution&lt;br&gt;
-　 先驗分配的參數（超參數／超母數）&lt;br&gt;
-(2) &lt;strong&gt;Hyperdisrtibution&lt;/strong&gt;: distribution of hyperparameters&lt;br&gt;
-　 超參數的分配&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;例如：我們需要建模學校的學生測驗成績&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Expectation maximization algorithm</title>
-      <link>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Sun, 12 Jan 2025 11:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Expectation-maximization algorithm&lt;br&gt;
-又翻譯為「最大期望值演算法」&lt;/li&gt;
-&lt;li&gt;經過兩個步驟交替進行計算：&lt;br&gt;
-第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值&lt;br&gt;
-第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值
-M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行&lt;br&gt;
-&lt;strong&gt;引自維基百科&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
   </channel>
 </rss>

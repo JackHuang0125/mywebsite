@@ -6,8 +6,77 @@
     <description>Recent content on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 13 Jan 2025 15:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2025 13:20:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Principal Component Analysis(PCA) Learning</title>
+      <link>http://localhost:1313/posts/pca/</link>
+      <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/pca/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h4 id=&#34;這篇文章利用-chat-gpt-翻譯成英文邊唸邊打純手打無複製貼上順便練英文-xd&#34;&gt;這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD&lt;/h4&gt;
+&lt;p&gt;We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically
+follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula:
+$$
+\left[
+\lambda_\alpha \left(
+1 - 1.96 \sqrt{\frac{2}{n-1}}
+\right); \lambda_\alpha \left(1 + 1.96 \sqrt{\frac{2}{n-1}}
+\right)
+\right]
+$$
+where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\lambda_\alpha$ represents the $\alpha$-th eigenvalue&lt;/li&gt;
+&lt;li&gt;$n$ denotes the sample size.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By caculating the 95%
+confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain.
+This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original
+information as possible.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Text Mining with R: Chapter4</title>
+      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <pubDate>Sun, 26 Jan 2025 13:45:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;tokenizing-by-n-gram-n-gram-分詞&#34;&gt;Tokenizing by n-gram (n-gram 分詞)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;將文檔的內容依照 n 個單詞作分類，例如：&lt;br&gt;
+[1] &amp;ldquo;The Bank is a place where you put your money&amp;rdquo;&lt;br&gt;
+[2] The Bee is an insect that gathers honey&amp;quot;&lt;br&gt;
+我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為&lt;br&gt;
+[1] &amp;ldquo;the bank&amp;rdquo;、&amp;ldquo;bank is&amp;rdquo;、&amp;ldquo;is a&amp;rdquo;、&amp;ldquo;a place&amp;rdquo;、&amp;ldquo;place where&amp;rdquo;、&amp;ldquo;where you&amp;rdquo;、&amp;ldquo;you put&amp;rdquo;、&amp;ldquo;put your&amp;rdquo;、&amp;ldquo;your money&amp;rdquo;&lt;br&gt;
+[2] &amp;ldquo;the bee&amp;rdquo;、&amp;ldquo;bee is&amp;rdquo;、&amp;ldquo;is an&amp;rdquo;、&amp;ldquo;an insect&amp;rdquo;、&amp;ldquo;insect that&amp;rdquo;、&amp;ldquo;that gathers&amp;rdquo;、&amp;ldquo;gathers honey&amp;rdquo;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Text Mining with R: Chapter3</title>
+      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
+      <pubDate>Fri, 24 Jan 2025 15:02:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;analyzing-word-and-document-frequency-tf-idf&#34;&gt;Analyzing word and document frequency: tf-idf&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Term Frequency(tf): How frequently a word occurs in a document&lt;br&gt;
+詞頻: 單詞出現在文檔的頻率&lt;/li&gt;
+&lt;li&gt;Inverse Document Frequency(idf): use to decrease the weight for commonly used words and increase the weight for words that are not used very much in a collection of documents&lt;br&gt;
+逆文檔頻率: 文檔中出現愈多次的單詞，其權重愈低；反之則愈低。即衡量某詞在所有文檔中分佈的稀疏程度，是一種懲罰項 。
+並定義為：
+$$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)$$
+其中分子$n_{documents}$是文檔總數，分母$n_{documents containing term}$是包含該詞的文檔總數，
+若某單詞出現在文檔的次數少，表示分母小，其 IDF 大，重要性高，權重高；反之出現的次數多，表示分母大，其 IDF 小，重要性低，權重低。
+取對數則是為了減少極端數值，使 IDF 分佈更加平滑。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;tf-idf的目標是用於識別在單一文檔中有價值、但不常見的單詞（詞彙）&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;zipfs-law--齊夫定律&#34;&gt;Zipf&amp;rsquo;s law ( 齊夫定律)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;一種描述自然語言中單詞使用頻率分佈的統計規律，其宣稱單詞的頻率與其在文檔裡的頻率排名成反比，即：$$frequency \propto \frac{1}{rank} $$&lt;/li&gt;
+&lt;li&gt;出現頻率第一名的單詞的次數會是出現頻率第二名的單詞的次數的兩倍，會是出現頻率第三名的單詞的次數的三倍&amp;hellip;依此類推，會是出現頻率第 N 名的單詞的次數的 N 倍&lt;/li&gt;
+&lt;li&gt;若將排名 x 與出現頻率 y 取對數，即 logx 、 logy ，若整個文檔的坐標點標出來接近一直線，則該文檔符合 Zipf&amp;rsquo;s law&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     <item>
       <title>Hirarchical bayesian modeling</title>
       <link>http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</link>

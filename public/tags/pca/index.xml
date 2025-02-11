@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PCA on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/pca/</link>
+    <description>Recent content in PCA on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 04 Feb 2025 13:20:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/pca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Principle Component Analisy Learning</title>
+      <link>http://localhost:1313/posts/pca/</link>
+      <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/pca/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;heading&#34;&gt;&lt;/h3&gt;</description>
+    </item>
+  </channel>
+</rss>

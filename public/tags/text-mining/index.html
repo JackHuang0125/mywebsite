@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Tags | Yang&#39;s World</title>
+<title>Text Mining | Yang&#39;s World</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/tags/">
+<link rel="canonical" href="http://localhost:1313/tags/text-mining/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/text-mining/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/text-mining/">
 <noscript>
     <style>
         #theme-toggle,
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </li>
             <li>
                 <a href="http://localhost:1313/tags/" title="Tags">
-                    <span class="active">Tags</span>
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -141,55 +141,50 @@ document.addEventListener("DOMContentLoaded", function() {
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>Tags</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/tags/">Tags</a></div>
+  <h1>
+    Text Mining
+  </h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="http://localhost:1313/tags/bayesian/">Bayesian <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/cocktail/">cocktail <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/css/">css <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/em/">EM <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/hierarchical-bayesian/">Hierarchical Bayesian <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/html/">html <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/hugo-learning/">Hugo Learning <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/ingredients/">ingredients <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/learning-record/">Learning Record <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/learninig-record/">Learninig Record <sup><strong><sup>4</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/machine-learning/">Machine Learning <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/modeling/">modeling <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/text-mining/">Text mining <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/web-crawler/">web crawler <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
+[1] “The Bank is a place where you put your money”
+[2] The Bee is an insect that gathers honey&#34;
+我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
+[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
+[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Analyzing word and document frequency: tf-idf Term Frequency(tf): How frequently a word occurs in a document
+詞頻: 單詞出現在文檔的頻率 Inverse Document Frequency(idf): use to decrease the weight for commonly used words and increase the weight for words that are not used very much in a collection of documents
+逆文檔頻率: 文檔中出現愈多次的單詞，其權重愈低；反之則愈低。即衡量某詞在所有文檔中分佈的稀疏程度，是一種懲罰項 。 並定義為： $$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)$$ 其中分子$n_{documents}$是文檔總數，分母$n_{documents containing term}$是包含該詞的文檔總數， 若某單詞出現在文檔的次數少，表示分母小，其 IDF 大，重要性高，權重高；反之出現的次數多，表示分母大，其 IDF 小，重要性低，權重低。 取對數則是為了減少極端數值，使 IDF 分佈更加平滑。 tf-idf的目標是用於識別在單一文檔中有價值、但不常見的單詞（詞彙）
+Zipf’s law ( 齊夫定律) 一種描述自然語言中單詞使用頻率分佈的統計規律，其宣稱單詞的頻率與其在文檔裡的頻率排名成反比，即：$$frequency \propto \frac{1}{rank} $$ 出現頻率第一名的單詞的次數會是出現頻率第二名的單詞的次數的兩倍，會是出現頻率第三名的單詞的次數的三倍…依此類推，會是出現頻率第 N 名的單詞的次數的 N 倍 若將排名 x 與出現頻率 y 取對數，即 logx 、 logy ，若整個文檔的坐標點標出來接近一直線，則該文檔符合 Zipf’s law </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-24 15:02:00 +0800 CST'>January 24, 2025</span></footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter3" href="http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/"></a>
+</article>
     </main>
     
 <footer class="footer">
