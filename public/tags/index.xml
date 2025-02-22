@@ -6,13 +6,20 @@
     <description>Recent content in Tags on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 26 Jan 2025 13:45:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2025 13:20:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learninig Record</title>
       <link>http://localhost:1313/tags/learninig-record/</link>
-      <pubDate>Sun, 26 Jan 2025 13:45:00 +0800</pubDate>
+      <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
       <guid>http://localhost:1313/tags/learninig-record/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PCA</title>
+      <link>http://localhost:1313/tags/pca/</link>
+      <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/tags/pca/</guid>
       <description></description>
     </item>
     <item>
