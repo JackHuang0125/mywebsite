@@ -6,8 +6,106 @@
     <description>Recent content in Posts on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 04 Feb 2025 13:20:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Mar 2025 16:20:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decision &amp; Classification Tree Learning</title>
+      <link>http://localhost:1313/posts/decisionclassificationtrees/</link>
+      <pubDate>Tue, 18 Mar 2025 16:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/decisionclassificationtrees/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h3 id=&#34;-what-is-decision-tree&#34;&gt;🤔 What is decision tree?&lt;/h3&gt;
+&lt;p&gt;Decision tree is a system that relies on evaluating conditions as &lt;em&gt;True&lt;/em&gt; or &lt;em&gt;False&lt;/em&gt; to make decisions, such as in classification or regression.&lt;br&gt;
+When the tree needs to classify something into class A or class B, or even into multiple classes (which is called multi-class classification), we call
+it a &lt;strong&gt;classification tree&lt;/strong&gt;; On the other hand, when the tree performs regression to predict a numerical value, we call it a &lt;strong&gt;regression tree&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Statistical Computing HW_0320</title>
+      <link>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</link>
+      <pubDate>Tue, 18 Mar 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</guid>
+      <description>&lt;h4 id=&#34;this-is-homework&#34;&gt;This is homework&lt;/h4&gt;
+&lt;h1 id=&#34;1&#34;&gt;(1)&lt;/h1&gt;
+&lt;p&gt;已知：
+$$X_1, X_2, &amp;hellip;, X_n \overset{\text{iid}}{\sim}p(x)$$&lt;/p&gt;
+&lt;p&gt;計算：&lt;/p&gt;
+&lt;p&gt;$$ E( \hat{I}_M)=E\left[\frac{1}{n} \sum^n_{i=1} \frac{f(X_i)}{p(X_i)} \right]=\frac{1}{n}E\left[ \sum^n_{i=1} \frac{f(X_i)}{p(X_i)} \right] $$&lt;/p&gt;
+&lt;p&gt;對於每個獨立的 $X_i$ ，我們只要計算：
+$$E\left[\frac{f(X_i)}{p(X_i)} \right]$$&lt;/p&gt;
+&lt;p&gt;因此：
+$$
+E\left[\frac{f(X)}{p(X)} \right] = \int^b_a\frac{f(x)}{p(x)}p(x)dx =\int^b_af(x)dx = I
+$$&lt;/p&gt;
+&lt;p&gt;可知
+$$E\left[\frac{f(X_i)}{p(X_i)} \right] =I,　\forall i
+$$&lt;/p&gt;
+&lt;p&gt;所以
+$$
+E(\hat{I}_M) =\frac{1}{n}\sum^n_{i=1}I=I
+$$&lt;/p&gt;
+&lt;h1 id=&#34;2&#34;&gt;(2)&lt;/h1&gt;
+&lt;p&gt;計算變異數
+$$Var(\hat{I}_M)=E\left[(\hat{I}_M-I)^2\right]$$&lt;/p&gt;
+&lt;p&gt;因為
+$$
+\begin{aligned}
+Var(\widehat{I}_M)
+&amp;amp;= Var\left(\frac{1}{n} \sum_{i=1}^{n} \frac{f(X_i)}{p(X_i)}\right)
+= \frac{1}{n}Var\left(\frac{f(X)}{p(X)}\right) \\
+&amp;amp;= \frac{1}{n}\left(E\left[\left(\frac{f(X)}{p(X)}\right)^2\right]-I^2\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;已知
+$$E\left[\left(\frac{f(X)}{p(X)}\right)^2\right] &amp;lt; \infty$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Logistic Regression Learning</title>
+      <link>http://localhost:1313/posts/logisticregression/</link>
+      <pubDate>Tue, 11 Mar 2025 09:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/logisticregression/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;p&gt;Logistic Function (aka logit, MaxEnt) classifier, which means that it is also known as logit regression,
+maximum-entropy classification(MaxEnt) or the log-linear classifier.&lt;br&gt;
+In this model, the probabilities from the outcome of predictions is using a logistic function.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;and-what-is-logistic-function&#34;&gt;And what is logistic function?&lt;/h3&gt;
+&lt;h3 id=&#34;let-talk-about-it&#34;&gt;Let talk about it.&lt;/h3&gt;
+&lt;p&gt;Here comes from &lt;strong&gt;Wikipedia&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A logistic function or a logistic curve is a commond S-shaped curve (&lt;strong&gt;sigmoid curve&lt;/strong&gt;) with the equation:
+$$ f(x) = \frac{L}{1+e^{-k(x-x_o)}}$$
+where:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AdaBoost Learning</title>
+      <link>http://localhost:1313/posts/adaboost/</link>
+      <pubDate>Fri, 07 Mar 2025 08:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/adaboost/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;p&gt;AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RandomForest Learning</title>
+      <link>http://localhost:1313/posts/randomforest/</link>
+      <pubDate>Wed, 05 Mar 2025 11:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/randomforest/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;p&gt;隨機森林基本概要&lt;br&gt;
+由多棵決策樹聚集而成的森林&lt;br&gt;
+方法:&lt;br&gt;
+從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)&lt;br&gt;
+因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)&lt;br&gt;
+但是當原始資料的數據龐大時，會發現在抽樣完畢後，有些樣本並沒有被抽取到&lt;br&gt;
+而這些樣本就被稱為Out of Bag(OOB)資料(袋外)&lt;br&gt;
+除了上述訓練資料是被重複抽取之外，特徵也是如此&lt;br&gt;
+隨機森林並不會將所有特徵一起考慮，而是會隨機抽取特徵(可設定參數max_features)&lt;br&gt;
+進行每棵樹的訓練，以上述兩種方式來達到每棵樹近乎獨立的情況，目的是降低每棵樹之間的高度相關性，&lt;br&gt;
+優點是提高模型的泛化能力，防止過擬合(Overfitting)的情況發生、增進預測穩定性與準確度&lt;br&gt;
+演算法:
+隨機森林的演算法與決策樹的演算法的核心概念是一樣的，差別只是在建立樹的方法不同而已(如上述)&lt;br&gt;
+意即當應用在分類問題時，則採用吉尼不純度(Gini Impurity)或是鏑(Entropy)演算法作為分類依據&lt;br&gt;
+當應用在迴歸問題時，通常採用最小平方誤差(MSE)(其他還有卜氏Possion)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Principal Component Analysis(PCA) Learning</title>
       <link>http://localhost:1313/posts/pca/</link>
@@ -205,31 +303,114 @@ cocktail_df = pd.DataFrame(cocktail_data)
 &lt;del&gt;雖然我還沒有建立留言板就是了&lt;/del&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>My Learning Record</title>
-      <link>http://localhost:1313/posts/my-learning-record/</link>
-      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-learning-record/</guid>
-      <description></description>
+      <title>Least square estimator of β in linear regression</title>
+      <link>http://localhost:1313/posts/lseofbeta/</link>
+      <pubDate>Fri, 04 Oct 2024 16:02:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/lseofbeta/</guid>
+      <description>&lt;h3 id=&#34;assume&#34;&gt;Assume&lt;/h3&gt;
+&lt;p&gt;$$ Y_i = \beta_o + \beta_1X_i+\varepsilon_i $$
+, for given $n$ observerd data $(x_i, Y_i)$, $\forall i=1～n$&lt;/p&gt;
+&lt;p&gt;Note that:
+$$ Y_i \mid X_i=x_i ~ N(\beta_o+\beta_1X_1, \sigma^2) $$&lt;br&gt;
+$\therefore$
+$$ E_{Y \mid X}[Y_i \mid X_i =x_i]=\beta_o+\beta_1X_1$$
+In vector notation:
+$$ Y_i = x^T_i\beta + \varepsilon_i $$
+where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ x_i=(1, X_1, &amp;hellip;, X_n)^T $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And for $ Y = (Y_1, &amp;hellip;, Y_n)^T $, We have:
+$$
+Y = X\beta + \varepsilon
+$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>My 2nd post</title>
-      <link>http://localhost:1313/posts/helloworld/secondpage/</link>
-      <pubDate>Wed, 08 Jan 2025 16:38:03 +0800</pubDate>
-      <guid>http://localhost:1313/posts/helloworld/secondpage/</guid>
-      <description>&lt;p&gt;2025/01/09&lt;/p&gt;
-&lt;p&gt;瞭解到HUGO有三種語法&lt;/p&gt;
+      <link>http://localhost:1313/posts/02/</link>
+      <pubDate>Tue, 17 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/02/</guid>
+      <description>&lt;p&gt;瞭解到HUGO有三種語法&lt;/p&gt;
 &lt;p&gt;分別是：JSON、TOML、YAML&lt;/p&gt;
 &lt;p&gt;因為TOML的內容格式類似PYTHON的，而我本人也比較習慣PYTHON的語法&lt;/p&gt;
 &lt;p&gt;所以採用TOML的語法，並將全部的語法改為跟TOML的&lt;/p&gt;</description>
     </item>
     <item>
       <title>My 1st post</title>
-      <link>http://localhost:1313/posts/helloworld/page/</link>
-      <pubDate>Wed, 08 Jan 2025 16:30:03 +0800</pubDate>
-      <guid>http://localhost:1313/posts/helloworld/page/</guid>
-      <description>&lt;h1 id=&#34;這是我的第一篇&#34;&gt;這是我的第一篇&lt;/h1&gt;
-&lt;h2 id=&#34;這是我的第二篇&#34;&gt;這是我的第二篇&lt;/h2&gt;
-&lt;h3 id=&#34;這是我的第三篇&#34;&gt;這是我的第三篇&lt;/h3&gt;</description>
+      <link>http://localhost:1313/posts/01/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/01/</guid>
+      <description>&lt;p&gt;開學了!&lt;/p&gt;
+&lt;h1 id=&#34;這是我的第一行&#34;&gt;這是我的第一行&lt;/h1&gt;
+&lt;h2 id=&#34;這是我的第二行&#34;&gt;這是我的第二行&lt;/h2&gt;
+&lt;h3 id=&#34;這是我的第三行&#34;&gt;這是我的第三行&lt;/h3&gt;
+&lt;h4 id=&#34;這是我的第四行&#34;&gt;這是我的第四行&lt;/h4&gt;
+&lt;h5 id=&#34;這是我的第五行&#34;&gt;這是我的第五行&lt;/h5&gt;
+&lt;h6 id=&#34;這個文字大小最多到第六行這樣的大小&#34;&gt;這個文字大小最多到第六行這樣的大小&lt;/h6&gt;
+&lt;p&gt;&lt;em&gt;這是斜體字&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;這是粗體字&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;這是斜體中的粗體&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;這是不分行的數學語法 $a \alpha b \beta \Sigma \sigma $&lt;/p&gt;
+&lt;p&gt;這是分行的數學語法 $$a \alpha b \beta \Sigma \sigma $$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;這是編號1號&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;這是編號2號&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;這是項目編號
+&lt;ul&gt;
+&lt;li&gt;這是第一次縮排的項目編號
+&lt;ul&gt;
+&lt;li&gt;這是第二次縮牌的項目編號
+&lt;ul&gt;
+&lt;li&gt;我不知道還有沒有第三次縮排的項目編號
+&lt;ul&gt;
+&lt;li&gt;看來第二次縮排以後都是一樣的項目編號&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;這是第一列第一行&lt;/th&gt;
+          &lt;th&gt;這是第一列第二行&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;這是第二列第一行&lt;/td&gt;
+          &lt;td&gt;這是第二列第二行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;這是第三列第一行&lt;/td&gt;
+          &lt;td&gt;這是第三列第二行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/gradientboost/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gradientboost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/suportvectormachine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/suportvectormachine/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

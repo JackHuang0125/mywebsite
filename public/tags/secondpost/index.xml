@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SecondPost on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/secondpost/</link>
+    <description>Recent content in SecondPost on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 17 Sep 2024 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/secondpost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2nd post</title>
+      <link>http://localhost:1313/posts/02/</link>
+      <pubDate>Tue, 17 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/02/</guid>
+      <description>&lt;p&gt;瞭解到HUGO有三種語法&lt;/p&gt;
+&lt;p&gt;分別是：JSON、TOML、YAML&lt;/p&gt;
+&lt;p&gt;因為TOML的內容格式類似PYTHON的，而我本人也比較習慣PYTHON的語法&lt;/p&gt;
+&lt;p&gt;所以採用TOML的語法，並將全部的語法改為跟TOML的&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

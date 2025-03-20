@@ -5,48 +5,67 @@ theme = "PaperMo"
 
 [menu]
     [[menu.main]]
-    identifier = "categories"
     name = "Categories"
-    url = "/categories/"
-    weight = 10
+    url = "categories"
+    weight = 2
 
     [[menu.main]]
-    identifier = "tags"
     name = "Tags"
-    url = "/tags/"
-    weight = 10
+    url = "tags/"
+    weight = 3
 
     [[menu.main]]
-    identifier = "archives"
-    name = "Archives"
-    url = "/archives/"
-    weight = 20
+    name = "Archive"
+    url = "archives"
+    weight = 1
    
     [[menu.main]]
-    identifier = "search"
     name = "Search"
-    url = "/search"
-    weight = 15
+    url = "search"
+    weight = 4
+
+    [[menu.main]]
+    name = "YahooStock"
+    url = "https://tw.stock.yahoo.com/"
+
 
 [params]
     ShowShareButtons = true
     ShowBreadCrumbs = true
+    ShowReadingTime = true  
+    ShowPostNavLinks = true
+    ShowCodeCopyButtons = true
+    ShowAllPagesInArchive = true
+    ShowPageNums = true
+    ShowToc = true
+    
     math = true
+    defaultTheme = "auto"
     
     [params.profileMode]
     enabled = true
     title = "Hi There" # optional default will be site title
-    subtitle = "Welcome to my blog, I'm a beginner in learning coding." 
+    subtitle = "Welcome to my blog! I'm a beginner in data analysis." 
     imageUrl = "ID.jpg" # optional
-    imageTitle = "this is a title" # optional
     imageWidth = 200 # custom size
     imageHeight = 200 # custom size
+    
     [[params.socialIcons]]
-    name = "x"
-    url = "https://x.com/"
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/yang611211106/"
+
+    [[params.socialIcons]]
+    name = "kaggle"
+    url = "https://www.kaggle.com/chengyannng"
+    
     [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://github.com/JackHuang0125/psychic-spoon"
+
+    [[params.socialIcons]]
+    name = "instagram"
+    url = "https://www.instagram.com/imjack_huang/"
+
 
     [[params.buttons]]
     name = "Archive"
@@ -60,9 +79,8 @@ theme = "PaperMo"
     [params.cover]
     linkFullImages = true
 
-
-
-
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
 
 
 

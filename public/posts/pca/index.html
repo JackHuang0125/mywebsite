@@ -75,26 +75,26 @@ information as possible.">
         }
 
     </style>
-</noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+</noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-        ]
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
     });
-});
 </script>
-
 </head>
 
 <body class="" id="top">
@@ -138,7 +138,12 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -153,8 +158,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archives">
-                    <span>Archives</span>
+                <a href="https://tw.stock.yahoo.com/" title="YahooStock">
+                    <span>YahooStock</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
                 </a>
             </li>
         </ul>
@@ -168,14 +179,33 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       Principal Component Analysis(PCA) Learning
     </h1>
-    <div class="post-meta"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>
+    <div class="post-meta"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min
 
 </div>
   </header> 
 <figure class="entry-cover"><a href="http://localhost:1313/PCA.png" target="_blank"
             rel="noopener noreferrer"><img loading="eager" src="http://localhost:1313/PCA.png" alt="20250204"></a>
         <p>PCA.png by JackHuang</p>
-</figure>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#%e9%80%99%e6%98%af%e7%b5%a6%e8%87%aa%e5%b7%b1%e7%9a%84%e4%b8%80%e4%bb%bd%e5%ad%b8%e7%bf%92%e7%b4%80%e9%8c%84%e4%bb%a5%e5%85%8d%e6%97%a5%e5%ad%90%e4%b9%85%e4%ba%86%e5%bf%98%e8%a8%98%e9%80%99%e6%98%af%e7%94%9a%e9%ba%bc%e7%90%86%e8%ab%96xd" aria-label="這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD">這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD</a></li>
+                <li>
+                    <a href="#%e9%80%99%e7%af%87%e6%96%87%e7%ab%a0%e5%88%a9%e7%94%a8-chat-gpt-%e7%bf%bb%e8%ad%af%e6%88%90%e8%8b%b1%e6%96%87%e9%82%8a%e5%94%b8%e9%82%8a%e6%89%93%e7%b4%94%e6%89%8b%e6%89%93%e7%84%a1%e8%a4%87%e8%a3%bd%e8%b2%bc%e4%b8%8a%e9%a0%86%e4%be%bf%e7%b7%b4%e8%8b%b1%e6%96%87-xd" aria-label="這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD">這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD</a></li></ul>
+                    
+                <li>
+                    <a href="#relationship-between-pca-and-clustering-ayalysis" aria-label="Relationship between PCA and clustering ayalysis">Relationship between PCA and clustering ayalysis</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h4 id="這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd">這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD<a hidden class="anchor" aria-hidden="true" href="#這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd">#</a></h4>
 <h4 id="這篇文章利用-chat-gpt-翻譯成英文邊唸邊打純手打無複製貼上順便練英文-xd">這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD<a hidden class="anchor" aria-hidden="true" href="#這篇文章利用-chat-gpt-翻譯成英文邊唸邊打純手打無複製貼上順便練英文-xd">#</a></h4>
 <p>We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically
@@ -326,6 +356,19 @@ $$</p>
       <li><a href="http://localhost:1313/tags/learninig-record/">Learninig Record</a></li>
       <li><a href="http://localhost:1313/tags/pca/">PCA</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/randomforest/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>RandomForest Learning</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Text Mining with R: Chapter4</span>
+  </a>
+</nav>
+
 
 <ul class="share-buttons">
     <li>
@@ -466,6 +509,53 @@ $$</p>
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

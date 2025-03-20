@@ -83,12 +83,5 @@ cocktail_df = pd.DataFrame(cocktail_data)
 &lt;strong&gt;有任何疑問歡迎提出&lt;/strong&gt;&lt;br&gt;
 &lt;del&gt;雖然我還沒有建立留言板就是了&lt;/del&gt;&lt;/p&gt;</description>
     </item>
-    <item>
-      <title>My Learning Record</title>
-      <link>http://localhost:1313/posts/my-learning-record/</link>
-      <pubDate>Thu, 09 Jan 2025 15:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/my-learning-record/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>

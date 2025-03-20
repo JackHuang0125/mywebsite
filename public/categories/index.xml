@@ -6,20 +6,41 @@
     <description>Recent content in Categories on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 04 Feb 2025 13:20:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Mar 2025 16:20:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learning</title>
       <link>http://localhost:1313/categories/learning/</link>
-      <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
+      <pubDate>Tue, 18 Mar 2025 16:20:00 +0800</pubDate>
       <guid>http://localhost:1313/categories/learning/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tech</title>
-      <link>http://localhost:1313/categories/tech/</link>
-      <pubDate>Wed, 08 Jan 2025 16:30:03 +0800</pubDate>
-      <guid>http://localhost:1313/categories/tech/</guid>
+      <title>Homework</title>
+      <link>http://localhost:1313/categories/homework/</link>
+      <pubDate>Tue, 18 Mar 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/homework/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>APLM</title>
+      <link>http://localhost:1313/categories/aplm/</link>
+      <pubDate>Fri, 04 Oct 2024 16:02:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/aplm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SecondPost</title>
+      <link>http://localhost:1313/categories/secondpost/</link>
+      <pubDate>Tue, 17 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/secondpost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FirstPost</title>
+      <link>http://localhost:1313/categories/firstpost/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/firstpost/</guid>
       <description></description>
     </item>
   </channel>

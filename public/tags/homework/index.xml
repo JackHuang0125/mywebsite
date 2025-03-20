@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Homework on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/homework/</link>
+    <description>Recent content in Homework on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 18 Mar 2025 11:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/homework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Statistical Computing HW_0320</title>
+      <link>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</link>
+      <pubDate>Tue, 18 Mar 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;</description>
+    </item>
+  </channel>
+</rss>

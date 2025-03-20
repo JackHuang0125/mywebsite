@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FirstPost on Yang&#39;s World</title>
+    <link>http://localhost:1313/categories/firstpost/</link>
+    <description>Recent content in FirstPost on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/firstpost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 1st post</title>
+      <link>http://localhost:1313/posts/01/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/01/</guid>
+      <description>&lt;p&gt;開學了!&lt;/p&gt;
+&lt;h1 id=&#34;這是我的第一行&#34;&gt;這是我的第一行&lt;/h1&gt;
+&lt;h2 id=&#34;這是我的第二行&#34;&gt;這是我的第二行&lt;/h2&gt;
+&lt;h3 id=&#34;這是我的第三行&#34;&gt;這是我的第三行&lt;/h3&gt;
+&lt;h4 id=&#34;這是我的第四行&#34;&gt;這是我的第四行&lt;/h4&gt;
+&lt;h5 id=&#34;這是我的第五行&#34;&gt;這是我的第五行&lt;/h5&gt;
+&lt;h6 id=&#34;這個文字大小最多到第六行這樣的大小&#34;&gt;這個文字大小最多到第六行這樣的大小&lt;/h6&gt;
+&lt;p&gt;&lt;em&gt;這是斜體字&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;這是粗體字&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;這是斜體中的粗體&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;這是不分行的數學語法 $a \alpha b \beta \Sigma \sigma $&lt;/p&gt;
+&lt;p&gt;這是分行的數學語法 $$a \alpha b \beta \Sigma \sigma $$&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;這是編號1號&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;這是編號2號&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;這是項目編號
+&lt;ul&gt;
+&lt;li&gt;這是第一次縮排的項目編號
+&lt;ul&gt;
+&lt;li&gt;這是第二次縮牌的項目編號
+&lt;ul&gt;
+&lt;li&gt;我不知道還有沒有第三次縮排的項目編號
+&lt;ul&gt;
+&lt;li&gt;看來第二次縮排以後都是一樣的項目編號&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;這是第一列第一行&lt;/th&gt;
+          &lt;th&gt;這是第一列第二行&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;這是第二列第一行&lt;/td&gt;
+          &lt;td&gt;這是第二列第二行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;這是第三列第一行&lt;/td&gt;
+          &lt;td&gt;這是第三列第二行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+  </channel>
+</rss>

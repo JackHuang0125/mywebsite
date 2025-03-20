@@ -3,27 +3,60 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/decisionclassificationtrees/</loc>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/decision-tree/</loc>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/learning/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/learninig-record/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/homework/</loc>
+    <lastmod>2025-03-18T11:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/monte-carlo-integration/</loc>
+    <lastmod>2025-03-18T11:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</loc>
+    <lastmod>2025-03-18T11:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/logisticregression/</loc>
+    <lastmod>2025-03-11T09:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/regression/</loc>
+    <lastmod>2025-03-11T09:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/adaboost/</loc>
+    <lastmod>2025-03-07T08:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/boosting/</loc>
+    <lastmod>2025-03-07T08:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ensemble/</loc>
+    <lastmod>2025-03-05T11:30:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/randomforest/</loc>
+    <lastmod>2025-03-05T11:30:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/pca/</loc>
     <lastmod>2025-02-04T13:20:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/pca/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-02-04T13:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2025-02-04T13:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/text-mining/</loc>
@@ -71,26 +104,39 @@
     <loc>http://localhost:1313/tags/web-crawler/</loc>
     <lastmod>2025-01-10T13:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/hugo-learning/</loc>
-    <lastmod>2025-01-09T15:30:00+08:00</lastmod>
+    <loc>http://localhost:1313/categories/aplm/</loc>
+    <lastmod>2024-10-04T16:02:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/my-learning-record/</loc>
-    <lastmod>2025-01-09T15:30:00+08:00</lastmod>
+    <loc>http://localhost:1313/tags/estimator/</loc>
+    <lastmod>2024-10-04T16:02:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/helloworld/secondpage/</loc>
-    <lastmod>2025-01-08T16:38:03+08:00</lastmod>
+    <loc>http://localhost:1313/posts/lseofbeta/</loc>
+    <lastmod>2024-10-04T16:02:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/css/</loc>
-    <lastmod>2025-01-08T16:30:03+08:00</lastmod>
+    <loc>http://localhost:1313/tags/linear/</loc>
+    <lastmod>2024-10-04T16:02:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/html/</loc>
-    <lastmod>2025-01-08T16:30:03+08:00</lastmod>
+    <loc>http://localhost:1313/posts/02/</loc>
+    <lastmod>2024-09-17T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/helloworld/page/</loc>
-    <lastmod>2025-01-08T16:30:03+08:00</lastmod>
+    <loc>http://localhost:1313/tags/secondpost/</loc>
+    <lastmod>2024-09-17T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/tech/</loc>
-    <lastmod>2025-01-08T16:30:03+08:00</lastmod>
+    <loc>http://localhost:1313/categories/secondpost/</loc>
+    <lastmod>2024-09-17T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/firstpost/</loc>
+    <lastmod>2024-09-16T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/fisrtpost/</loc>
+    <lastmod>2024-09-16T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/01/</loc>
+    <lastmod>2024-09-16T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/gradientboost/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/suportvectormachine/</loc>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
   </url><url>

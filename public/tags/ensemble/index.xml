@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ensemble on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/ensemble/</link>
+    <description>Recent content in Ensemble on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 05 Mar 2025 11:30:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ensemble/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RandomForest Learning</title>
+      <link>http://localhost:1313/posts/randomforest/</link>
+      <pubDate>Wed, 05 Mar 2025 11:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/randomforest/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;p&gt;隨機森林基本概要&lt;br&gt;
+由多棵決策樹聚集而成的森林&lt;br&gt;
+方法:&lt;br&gt;
+從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)&lt;br&gt;
+因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)&lt;br&gt;
+但是當原始資料的數據龐大時，會發現在抽樣完畢後，有些樣本並沒有被抽取到&lt;br&gt;
+而這些樣本就被稱為Out of Bag(OOB)資料(袋外)&lt;br&gt;
+除了上述訓練資料是被重複抽取之外，特徵也是如此&lt;br&gt;
+隨機森林並不會將所有特徵一起考慮，而是會隨機抽取特徵(可設定參數max_features)&lt;br&gt;
+進行每棵樹的訓練，以上述兩種方式來達到每棵樹近乎獨立的情況，目的是降低每棵樹之間的高度相關性，&lt;br&gt;
+優點是提高模型的泛化能力，防止過擬合(Overfitting)的情況發生、增進預測穩定性與準確度&lt;br&gt;
+演算法:
+隨機森林的演算法與決策樹的演算法的核心概念是一樣的，差別只是在建立樹的方法不同而已(如上述)&lt;br&gt;
+意即當應用在分類問題時，則採用吉尼不純度(Gini Impurity)或是鏑(Entropy)演算法作為分類依據&lt;br&gt;
+當應用在迴歸問題時，通常採用最小平方誤差(MSE)(其他還有卜氏Possion)&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

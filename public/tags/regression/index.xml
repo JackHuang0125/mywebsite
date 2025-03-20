@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Regression on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/regression/</link>
+    <description>Recent content in Regression on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 11 Mar 2025 09:20:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logistic Regression Learning</title>
+      <link>http://localhost:1313/posts/logisticregression/</link>
+      <pubDate>Tue, 11 Mar 2025 09:20:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/logisticregression/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;p&gt;Logistic Function (aka logit, MaxEnt) classifier, which means that it is also known as logit regression,
+maximum-entropy classification(MaxEnt) or the log-linear classifier.&lt;br&gt;
+In this model, the probabilities from the outcome of predictions is using a logistic function.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;and-what-is-logistic-function&#34;&gt;And what is logistic function?&lt;/h3&gt;
+&lt;h3 id=&#34;let-talk-about-it&#34;&gt;Let talk about it.&lt;/h3&gt;
+&lt;p&gt;Here comes from &lt;strong&gt;Wikipedia&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A logistic function or a logistic curve is a commond S-shaped curve (&lt;strong&gt;sigmoid curve&lt;/strong&gt;) with the equation:
+$$ f(x) = \frac{L}{1+e^{-k(x-x_o)}}$$
+where:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Least square estimator of β in linear regression</title>
+      <link>http://localhost:1313/posts/lseofbeta/</link>
+      <pubDate>Fri, 04 Oct 2024 16:02:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/lseofbeta/</guid>
+      <description>&lt;h3 id=&#34;assume&#34;&gt;Assume&lt;/h3&gt;
+&lt;p&gt;$$ Y_i = \beta_o + \beta_1X_i+\varepsilon_i $$
+, for given $n$ observerd data $(x_i, Y_i)$, $\forall i=1～n$&lt;/p&gt;
+&lt;p&gt;Note that:
+$$ Y_i \mid X_i=x_i ~ N(\beta_o+\beta_1X_1, \sigma^2) $$&lt;br&gt;
+$\therefore$
+$$ E_{Y \mid X}[Y_i \mid X_i =x_i]=\beta_o+\beta_1X_1$$
+In vector notation:
+$$ Y_i = x^T_i\beta + \varepsilon_i $$
+where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ x_i=(1, X_1, &amp;hellip;, X_n)^T $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And for $ Y = (Y_1, &amp;hellip;, Y_n)^T $, We have:
+$$
+Y = X\beta + \varepsilon
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

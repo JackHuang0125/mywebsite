@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Homework on Yang&#39;s World</title>
+    <link>http://localhost:1313/categories/homework/</link>
+    <description>Recent content in Homework on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 18 Mar 2025 11:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/homework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Statistical Computing HW_0320</title>
+      <link>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</link>
+      <pubDate>Tue, 18 Mar 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/</guid>
+      <description>&lt;h4 id=&#34;this-is-homework&#34;&gt;This is homework&lt;/h4&gt;
+&lt;h1 id=&#34;1&#34;&gt;(1)&lt;/h1&gt;
+&lt;p&gt;已知：
+$$X_1, X_2, &amp;hellip;, X_n \overset{\text{iid}}{\sim}p(x)$$&lt;/p&gt;
+&lt;p&gt;計算：&lt;/p&gt;
+&lt;p&gt;$$ E( \hat{I}_M)=E\left[\frac{1}{n} \sum^n_{i=1} \frac{f(X_i)}{p(X_i)} \right]=\frac{1}{n}E\left[ \sum^n_{i=1} \frac{f(X_i)}{p(X_i)} \right] $$&lt;/p&gt;
+&lt;p&gt;對於每個獨立的 $X_i$ ，我們只要計算：
+$$E\left[\frac{f(X_i)}{p(X_i)} \right]$$&lt;/p&gt;
+&lt;p&gt;因此：
+$$
+E\left[\frac{f(X)}{p(X)} \right] = \int^b_a\frac{f(x)}{p(x)}p(x)dx =\int^b_af(x)dx = I
+$$&lt;/p&gt;
+&lt;p&gt;可知
+$$E\left[\frac{f(X_i)}{p(X_i)} \right] =I,　\forall i
+$$&lt;/p&gt;
+&lt;p&gt;所以
+$$
+E(\hat{I}_M) =\frac{1}{n}\sum^n_{i=1}I=I
+$$&lt;/p&gt;
+&lt;h1 id=&#34;2&#34;&gt;(2)&lt;/h1&gt;
+&lt;p&gt;計算變異數
+$$Var(\hat{I}_M)=E\left[(\hat{I}_M-I)^2\right]$$&lt;/p&gt;
+&lt;p&gt;因為
+$$
+\begin{aligned}
+Var(\widehat{I}_M)
+&amp;amp;= Var\left(\frac{1}{n} \sum_{i=1}^{n} \frac{f(X_i)}{p(X_i)}\right)
+= \frac{1}{n}Var\left(\frac{f(X)}{p(X)}\right) \\
+&amp;amp;= \frac{1}{n}\left(E\left[\left(\frac{f(X)}{p(X)}\right)^2\right]-I^2\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;已知
+$$E\left[\left(\frac{f(X)}{p(X)}\right)^2\right] &amp;lt; \infty$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Least square estimator of β in linear regression</title>
+      <link>http://localhost:1313/posts/lseofbeta/</link>
+      <pubDate>Fri, 04 Oct 2024 16:02:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/lseofbeta/</guid>
+      <description>&lt;h3 id=&#34;assume&#34;&gt;Assume&lt;/h3&gt;
+&lt;p&gt;$$ Y_i = \beta_o + \beta_1X_i+\varepsilon_i $$
+, for given $n$ observerd data $(x_i, Y_i)$, $\forall i=1～n$&lt;/p&gt;
+&lt;p&gt;Note that:
+$$ Y_i \mid X_i=x_i ~ N(\beta_o+\beta_1X_1, \sigma^2) $$&lt;br&gt;
+$\therefore$
+$$ E_{Y \mid X}[Y_i \mid X_i =x_i]=\beta_o+\beta_1X_1$$
+In vector notation:
+$$ Y_i = x^T_i\beta + \varepsilon_i $$
+where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ x_i=(1, X_1, &amp;hellip;, X_n)^T $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And for $ Y = (Y_1, &amp;hellip;, Y_n)^T $, We have:
+$$
+Y = X\beta + \varepsilon
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

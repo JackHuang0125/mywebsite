@@ -123,26 +123,26 @@ cocktail_df = pd.DataFrame(cocktail_data)
         }
 
     </style>
-</noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+</noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    renderMathInElement(document.body, {
-        delimiters: [
-            {left: "$$", right: "$$", display: true},
-            {left: "$", right: "$", display: false}
-        ]
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
     });
-});
 </script>
-
 </head>
 
 <body class="" id="top">
@@ -186,7 +186,12 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/categories/" title="Categories">
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
                     <span>Categories</span>
                 </a>
             </li>
@@ -201,8 +206,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/archives/" title="Archives">
-                    <span>Archives</span>
+                <a href="https://tw.stock.yahoo.com/" title="YahooStock">
+                    <span>YahooStock</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
                 </a>
             </li>
         </ul>
@@ -216,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1 class="post-title entry-hint-parent">
       cocktail webcrawler
     </h1>
-    <div class="post-meta"><span title='2025-01-10 13:30:00 +0800 CST'>January 10, 2025</span>
+    <div class="post-meta"><span title='2025-01-10 13:30:00 +0800 CST'>January 10, 2025</span>&nbsp;·&nbsp;1 min
 
 </div>
   </header> 
@@ -224,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function() {
             rel="noopener noreferrer"><img loading="eager" src="http://localhost:1313/webcrawler.jpg" alt="20250110"></a>
         <p>webcrawler.jpg by JackHuang</p>
 </figure>
+
   <div class="post-content"><p><strong>這是給我自己的一份教學，以免日子久了忘記怎麼爬蟲，同時也是一篇學習紀錄</strong><br>
 <strong>擁有一個可以寫code的環境，網路上很多安裝環境的教學</strong><br>
 <strong>我是用anoconda的vs code寫code的</strong></p>
@@ -304,6 +316,19 @@ cocktail_df = pd.DataFrame(cocktail_data)
       <li><a href="http://localhost:1313/tags/ingredients/">Ingredients</a></li>
       <li><a href="http://localhost:1313/tags/learning-record/">Learning Record</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Expectation maximization algorithm</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/lseofbeta/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Least square estimator of β in linear regression</span>
+  </a>
+</nav>
+
 
 <ul class="share-buttons">
     <li>
@@ -444,6 +469,53 @@ cocktail_df = pd.DataFrame(cocktail_data)
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
