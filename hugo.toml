@@ -38,7 +38,7 @@ theme = "PaperMo"
     ShowAllPagesInArchive = true
     ShowPageNums = true
     ShowToc = true
-    
+
     math = true
     defaultTheme = "auto"
     

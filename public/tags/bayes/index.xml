@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bayes on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/bayes/</link>
+    <description>Recent content in Bayes on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 21 Mar 2025 16:40:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bayes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Naive &amp; Gaussian Bayes Learning</title>
+      <link>http://localhost:1313/posts/naivebayes/</link>
+      <pubDate>Fri, 21 Mar 2025 16:40:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/naivebayes/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h3 id=&#34;-naive-bayes&#34;&gt;👶 Naive Bayes&lt;/h3&gt;
+&lt;p&gt;By definition of Bayes&amp;rsquo; theorem
+$$
+P(y \mid x_1, x_2, &amp;hellip;, x_n) = \frac{P(y)P(x_1, x_2, &amp;hellip;, x_n \mid y)}{P(x_1, x_2, &amp;hellip;, x_n)}
+$$&lt;/p&gt;
+&lt;p&gt;where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$P(y)$ represents the prior probability of class $y$&lt;/li&gt;
+&lt;li&gt;$P(x_1, x_2, &amp;hellip;, x_n \mid y)$ represents the likelihood, i.e., the probability of observing features $x_1, x_2, &amp;hellip;, x_n$ given class $y$&lt;/li&gt;
+&lt;li&gt;$P(x_1, x_2, &amp;hellip;, x_n)$ represents the marginal probability of the feature set $x_1, x_2, &amp;hellip;, x_n$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With the assumption of Naive Bayes - &lt;strong&gt;Conditional Independence&lt;/strong&gt;&lt;br&gt;
+$$
+P(x_i \mid y, x_1, &amp;hellip;, x_{i-1}, x_{i+1}, &amp;hellip;, x_n) = P(x_i \mid y)
+$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

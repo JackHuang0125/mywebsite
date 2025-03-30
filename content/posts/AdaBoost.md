@@ -13,4 +13,5 @@ categories = ["Learning"]
 
 #### 這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
 
-AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.  
+### 🪴AdaBoosting
+a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.  

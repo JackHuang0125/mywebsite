@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/bayes/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/gaussian/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/learning/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/learninig-record/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/naivebayes/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-03-21T16:40:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/boosting/</loc>
+    <lastmod>2025-03-20T08:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/gradientboost/</loc>
+    <lastmod>2025-03-20T08:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/decisionclassificationtrees/</loc>
     <lastmod>2025-03-18T16:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/decision-tree/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/learning/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/learninig-record/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-03-18T16:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
     <lastmod>2025-03-18T16:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/homework/</loc>
@@ -42,9 +57,6 @@
     <lastmod>2025-03-11T09:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/adaboost/</loc>
-    <lastmod>2025-03-07T08:20:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/boosting/</loc>
     <lastmod>2025-03-07T08:20:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/ensemble/</loc>
@@ -133,8 +145,6 @@
   </url><url>
     <loc>http://localhost:1313/posts/01/</loc>
     <lastmod>2024-09-16T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/gradientboost/</loc>
   </url><url>
     <loc>http://localhost:1313/posts/suportvectormachine/</loc>
   </url><url>

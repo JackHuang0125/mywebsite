@@ -2,7 +2,7 @@
 title = "Principal Component Analysis(PCA) Learning"
 date = 2025-02-04T13:20:00+08:00
 draft =  false
-tags = ["Learninig Record", "PCA"]
+tags = ["Learninig Record", "PCA", 'Unsupervised', 'dimensionality reduction']
 categories = ["Learning"]
 
 [cover]
