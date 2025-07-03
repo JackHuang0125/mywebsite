@@ -6,8 +6,100 @@
     <description>Recent content in Posts on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 22 Mar 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 11:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Expectation maximization algorithm</title>
+      <link>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 03 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Expectation-maximization algorithm -「最大期望值演算法」&lt;/li&gt;
+&lt;li&gt;經過兩個步驟交替進行計算：&lt;br&gt;
+第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值&lt;br&gt;
+第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值
+M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行&lt;br&gt;
+&lt;strong&gt;引自維基百科&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;example-from-finalterm&#34;&gt;Example from finalterm&lt;/h3&gt;
+&lt;p&gt;Assume that $Y_1, Y_2, &amp;hellip;, Y_n ~ exp(\theta)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consider the MLE of $\theta$ based on $Y_1, Y_2, &amp;hellip;, Y_n$&lt;/li&gt;
+&lt;li&gt;Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$,  $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^&lt;em&gt;_4=1.2$ and $y^&lt;/em&gt;_5=2.3$ before the light bulb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>XGBoost Learning</title>
+      <link>http://localhost:1313/posts/xgboost/</link>
+      <pubDate>Sun, 30 Mar 2025 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/xgboost/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h1 id=&#34;-xgboost-boost&#34;&gt;🦹 XGBoost Boost&lt;/h1&gt;
+&lt;h3 id=&#34;what-is-xgboost&#34;&gt;What is XGBoost?&lt;/h3&gt;
+&lt;p&gt;Think of XGBoost as a team of smart tutors, each correcting the mistakes made by the previous one, gradually improving your answers step by step.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-key-concepts-in-xgboost-tree-building&#34;&gt;🗝 Key Concepts in XGBoost Tree Building&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Start with an initial guess (e.g., average score).&lt;/li&gt;
+&lt;li&gt;Measure how far off the prediction is from the real answer (this is called the &lt;strong&gt;residual&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;The next tree learns how to &lt;strong&gt;fix these errors&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Every new tree improves on the mistakes of the previous trees.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-how-to-divide-the-data-not-randomly&#34;&gt;🥢 How to Divide the Data (Not Randomly)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;XGBoost doesn’t split data based on traditional methods like information gain.&lt;/li&gt;
+&lt;li&gt;It uses a formula called &lt;strong&gt;Gain&lt;/strong&gt;, which measures how much a split improves prediction.&lt;/li&gt;
+&lt;li&gt;A split only happens if:&lt;br&gt;
+&lt;strong&gt;(Left + Right Score) &amp;gt; (Parent Score + Penalty)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-how-do-we-know-if-a-split-is-good&#34;&gt;❓ How do we know if a split is good?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Use a value called &lt;strong&gt;Similarity Score&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The higher the score, the more consistent (similar) the residuals are in that group&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-two-ways-to-find-splits-accurate--exact-greedy-algorithm&#34;&gt;🐢 Two Ways to Find Splits: Accurate- Exact Greedy Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Try &lt;strong&gt;all&lt;/strong&gt; possible features and split points&lt;/li&gt;
+&lt;li&gt;Very accurate but &lt;strong&gt;very slow&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-two-ways-to-find-splits-fast--approximate-algorithm&#34;&gt;🐇 Two Ways to Find Splits: Fast- Approximate Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Uses &lt;strong&gt;feature quantiles&lt;/strong&gt; (e.g., median) to propose a few split points&lt;/li&gt;
+&lt;li&gt;Group the data based on these splits and evaluate the best one&lt;/li&gt;
+&lt;li&gt;Two options:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Global Proposal&lt;/strong&gt;: use global info to suggest splits&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local Proposal&lt;/strong&gt;: use local (node-specific) info&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-weighted-quantile-sketch&#34;&gt;🏋 Weighted Quantile Sketch&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Some data points are more important (like how teachers focus more on students who struggle)&lt;/li&gt;
+&lt;li&gt;Each data point has a &lt;strong&gt;weight&lt;/strong&gt; based on how wrong it was (second-order gradient)&lt;/li&gt;
+&lt;li&gt;Use these weights to suggest better and more meaningful split points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-handling-missing-values&#34;&gt;🕳 Handling Missing Values&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What if some feature values are &lt;strong&gt;missing&lt;/strong&gt;?&lt;/li&gt;
+&lt;li&gt;XGBoost learns a &lt;strong&gt;default path&lt;/strong&gt; for missing data&lt;/li&gt;
+&lt;li&gt;This makes the model more robust even when the data isn’t complete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-controlling-model-complexity-regularization&#34;&gt;🧚‍♀️ Controlling Model Complexity: Regularization&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Gamma (γ)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Linear Discriminant Analysis Learning</title>
       <link>http://localhost:1313/posts/lineardiscriminantanalysis/</link>
@@ -38,12 +130,20 @@ P(x_i \mid y, x_1, &amp;hellip;, x_{i-1}, x_{i+1}, &amp;hellip;, x_n) = P(x_i \m
 $$&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Support Vector Machine Learning</title>
+      <link>http://localhost:1313/posts/suportvectormachine/</link>
+      <pubDate>Fri, 21 Mar 2025 16:40:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/suportvectormachine/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h3 id=&#34;-support-vector-machine&#34;&gt;🪡 Support Vector Machine&lt;/h3&gt;</description>
+    </item>
+    <item>
       <title>GradientBoost Learning</title>
       <link>http://localhost:1313/posts/gradientboost/</link>
       <pubDate>Thu, 20 Mar 2025 08:20:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/gradientboost/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h1 id=&#34;gradient-boost&#34;&gt;Gradient Boost&lt;/h1&gt;</description>
+&lt;h1 id=&#34;-gradient-boost&#34;&gt;🎲 Gradient Boost&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Decision &amp; Classification Tree Learning</title>
@@ -119,7 +219,8 @@ where:&lt;/p&gt;</description>
       <pubDate>Fri, 07 Mar 2025 08:20:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/adaboost/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;p&gt;AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
+&lt;h3 id=&#34;adaboosting&#34;&gt;🪴AdaBoosting&lt;/h3&gt;
+&lt;p&gt;a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
     </item>
     <item>
       <title>RandomForest Learning</title>
@@ -127,8 +228,8 @@ where:&lt;/p&gt;</description>
       <pubDate>Wed, 05 Mar 2025 11:30:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/randomforest/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;p&gt;隨機森林基本概要&lt;br&gt;
-由多棵決策樹聚集而成的森林&lt;br&gt;
+&lt;h3 id=&#34;-隨機森林基本概要&#34;&gt;🌳 隨機森林基本概要&lt;/h3&gt;
+&lt;p&gt;由多棵決策樹聚集而成的森林&lt;br&gt;
 方法:&lt;br&gt;
 從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)&lt;br&gt;
 因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)&lt;br&gt;
@@ -248,23 +349,6 @@ Bayesian hierarchical modeling makes use of two important concepts in deriving t
 &lt;p&gt;例如：我們需要建模學校的學生測驗成績&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Expectation maximization algorithm</title>
-      <link>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Sun, 12 Jan 2025 11:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Expectation-maximization algorithm&lt;br&gt;
-又翻譯為「最大期望值演算法」&lt;/li&gt;
-&lt;li&gt;經過兩個步驟交替進行計算：&lt;br&gt;
-第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值&lt;br&gt;
-第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值
-M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行&lt;br&gt;
-&lt;strong&gt;引自維基百科&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    <item>
       <title>cocktail webcrawler</title>
       <link>http://localhost:1313/posts/%E9%85%92%E8%AD%9C%E7%88%AC%E8%9F%B2%E6%95%99%E5%AD%B8/</link>
       <pubDate>Fri, 10 Jan 2025 13:30:00 +0800</pubDate>
@@ -363,6 +447,25 @@ Y = X\beta + \varepsilon
 $$&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Linear Regression Learning</title>
+      <link>http://localhost:1313/posts/simplelinearregression/</link>
+      <pubDate>Mon, 30 Sep 2024 09:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/simplelinearregression/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h3 id=&#34;simple-linear-regression&#34;&gt;Simple linear regression&lt;/h3&gt;
+&lt;p&gt;給定一組已知的(X, y)，其中X，y皆為連續變項&lt;br&gt;
+線性迴歸就是由X來預測y
+我們總是優先繪製散佈圖，觀察兩變項的變動趨勢&lt;br&gt;
+是第一種情況:X愈高，y愈高，還是第二種情況:X愈低，y愈低，又或者是第三種情況:y不會因為X的變動而跟著變動?&lt;br&gt;
+第一種稱為正相關，第二種稱為負向關，第三種稱為零相關&lt;/p&gt;
+&lt;p&gt;若X為一維，則稱為簡單迴歸，其迴歸線方程式為:
+$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;p&gt;若X為多維，則稱為複迴歸，其迴歸方程式為
+$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>My 2nd post</title>
       <link>http://localhost:1313/posts/02/</link>
       <pubDate>Tue, 17 Sep 2024 00:00:00 +0800</pubDate>
@@ -434,13 +537,6 @@ $$&lt;/p&gt;</description>
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/suportvectormachine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/suportvectormachine/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

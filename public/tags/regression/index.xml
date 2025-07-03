@@ -49,5 +49,24 @@ $$
 Y = X\beta + \varepsilon
 $$&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Linear Regression Learning</title>
+      <link>http://localhost:1313/posts/simplelinearregression/</link>
+      <pubDate>Mon, 30 Sep 2024 09:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/simplelinearregression/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h3 id=&#34;simple-linear-regression&#34;&gt;Simple linear regression&lt;/h3&gt;
+&lt;p&gt;給定一組已知的(X, y)，其中X，y皆為連續變項&lt;br&gt;
+線性迴歸就是由X來預測y
+我們總是優先繪製散佈圖，觀察兩變項的變動趨勢&lt;br&gt;
+是第一種情況:X愈高，y愈高，還是第二種情況:X愈低，y愈低，又或者是第三種情況:y不會因為X的變動而跟著變動?&lt;br&gt;
+第一種稱為正相關，第二種稱為負向關，第三種稱為零相關&lt;/p&gt;
+&lt;p&gt;若X為一維，則稱為簡單迴歸，其迴歸線方程式為:
+$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;p&gt;若X為多維，則稱為複迴歸，其迴歸方程式為
+$$&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

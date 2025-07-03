@@ -6,15 +6,84 @@
     <description>Recent content in Boosting on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Thu, 20 Mar 2025 08:20:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Mar 2025 08:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/boosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>XGBoost Learning</title>
+      <link>http://localhost:1313/posts/xgboost/</link>
+      <pubDate>Sun, 30 Mar 2025 08:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/xgboost/</guid>
+      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
+&lt;h1 id=&#34;-xgboost-boost&#34;&gt;🦹 XGBoost Boost&lt;/h1&gt;
+&lt;h3 id=&#34;what-is-xgboost&#34;&gt;What is XGBoost?&lt;/h3&gt;
+&lt;p&gt;Think of XGBoost as a team of smart tutors, each correcting the mistakes made by the previous one, gradually improving your answers step by step.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-key-concepts-in-xgboost-tree-building&#34;&gt;🗝 Key Concepts in XGBoost Tree Building&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Start with an initial guess (e.g., average score).&lt;/li&gt;
+&lt;li&gt;Measure how far off the prediction is from the real answer (this is called the &lt;strong&gt;residual&lt;/strong&gt;).&lt;/li&gt;
+&lt;li&gt;The next tree learns how to &lt;strong&gt;fix these errors&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Every new tree improves on the mistakes of the previous trees.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-how-to-divide-the-data-not-randomly&#34;&gt;🥢 How to Divide the Data (Not Randomly)&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;XGBoost doesn’t split data based on traditional methods like information gain.&lt;/li&gt;
+&lt;li&gt;It uses a formula called &lt;strong&gt;Gain&lt;/strong&gt;, which measures how much a split improves prediction.&lt;/li&gt;
+&lt;li&gt;A split only happens if:&lt;br&gt;
+&lt;strong&gt;(Left + Right Score) &amp;gt; (Parent Score + Penalty)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-how-do-we-know-if-a-split-is-good&#34;&gt;❓ How do we know if a split is good?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Use a value called &lt;strong&gt;Similarity Score&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;The higher the score, the more consistent (similar) the residuals are in that group&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-two-ways-to-find-splits-accurate--exact-greedy-algorithm&#34;&gt;🐢 Two Ways to Find Splits: Accurate- Exact Greedy Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Try &lt;strong&gt;all&lt;/strong&gt; possible features and split points&lt;/li&gt;
+&lt;li&gt;Very accurate but &lt;strong&gt;very slow&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-two-ways-to-find-splits-fast--approximate-algorithm&#34;&gt;🐇 Two Ways to Find Splits: Fast- Approximate Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Uses &lt;strong&gt;feature quantiles&lt;/strong&gt; (e.g., median) to propose a few split points&lt;/li&gt;
+&lt;li&gt;Group the data based on these splits and evaluate the best one&lt;/li&gt;
+&lt;li&gt;Two options:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Global Proposal&lt;/strong&gt;: use global info to suggest splits&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local Proposal&lt;/strong&gt;: use local (node-specific) info&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-weighted-quantile-sketch&#34;&gt;🏋 Weighted Quantile Sketch&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Some data points are more important (like how teachers focus more on students who struggle)&lt;/li&gt;
+&lt;li&gt;Each data point has a &lt;strong&gt;weight&lt;/strong&gt; based on how wrong it was (second-order gradient)&lt;/li&gt;
+&lt;li&gt;Use these weights to suggest better and more meaningful split points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-handling-missing-values&#34;&gt;🕳 Handling Missing Values&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;What if some feature values are &lt;strong&gt;missing&lt;/strong&gt;?&lt;/li&gt;
+&lt;li&gt;XGBoost learns a &lt;strong&gt;default path&lt;/strong&gt; for missing data&lt;/li&gt;
+&lt;li&gt;This makes the model more robust even when the data isn’t complete&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;-controlling-model-complexity-regularization&#34;&gt;🧚‍♀️ Controlling Model Complexity: Regularization&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Gamma (γ)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GradientBoost Learning</title>
       <link>http://localhost:1313/posts/gradientboost/</link>
       <pubDate>Thu, 20 Mar 2025 08:20:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/gradientboost/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h1 id=&#34;gradient-boost&#34;&gt;Gradient Boost&lt;/h1&gt;</description>
+&lt;h1 id=&#34;-gradient-boost&#34;&gt;🎲 Gradient Boost&lt;/h1&gt;</description>
     </item>
     <item>
       <title>AdaBoost Learning</title>
@@ -22,7 +91,8 @@
       <pubDate>Fri, 07 Mar 2025 08:20:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/adaboost/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;p&gt;AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
+&lt;h3 id=&#34;adaboosting&#34;&gt;🪴AdaBoosting&lt;/h3&gt;
+&lt;p&gt;a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

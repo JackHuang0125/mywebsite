@@ -160,6 +160,23 @@
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/XGBoost.webp" alt="20250330">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">XGBoost Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🦹 XGBoost Boost What is XGBoost? Think of XGBoost as a team of smart tutors, each correcting the mistakes made by the previous one, gradually improving your answers step by step.
+🗝 Key Concepts in XGBoost Tree Building Start with an initial guess (e.g., average score). Measure how far off the prediction is from the real answer (this is called the residual). The next tree learns how to fix these errors. Every new tree improves on the mistakes of the previous trees. 🥢 How to Divide the Data (Not Randomly) XGBoost doesn’t split data based on traditional methods like information gain. It uses a formula called Gain, which measures how much a split improves prediction. A split only happens if:
+(Left &#43; Right Score) &gt; (Parent Score &#43; Penalty) ❓ How do we know if a split is good? Use a value called Similarity Score The higher the score, the more consistent (similar) the residuals are in that group 🐢 Two Ways to Find Splits: Accurate- Exact Greedy Algorithm Try all possible features and split points Very accurate but very slow 🐇 Two Ways to Find Splits: Fast- Approximate Algorithm Uses feature quantiles (e.g., median) to propose a few split points Group the data based on these splits and evaluate the best one Two options: Global Proposal: use global info to suggest splits Local Proposal: use local (node-specific) info 🏋 Weighted Quantile Sketch Some data points are more important (like how teachers focus more on students who struggle) Each data point has a weight based on how wrong it was (second-order gradient) Use these weights to suggest better and more meaningful split points 🕳 Handling Missing Values What if some feature values are missing? XGBoost learns a default path for missing data This makes the model more robust even when the data isn’t complete 🧚‍♀️ Controlling Model Complexity: Regularization Gamma (γ)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-30 08:00:00 +0800 CST'>March 30, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/xgboost/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/gradient.webp" alt="20250320">
 </figure>
   <header class="entry-header">
@@ -167,7 +184,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD Gradient Boost</p>
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🎲 Gradient Boost</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-20 08:20:00 +0800 CST'>March 20, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to GradientBoost Learning" href="http://localhost:1313/posts/gradientboost/"></a>
@@ -181,7 +198,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪴AdaBoosting a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
 </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-07 08:20:00 +0800 CST'>March 7, 2025</span>&nbsp;·&nbsp;1 min</footer>

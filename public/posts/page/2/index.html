@@ -160,6 +160,69 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/RF.png" alt="20250305">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">RandomForest Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🌳 隨機森林基本概要 由多棵決策樹聚集而成的森林
+方法:
+從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)
+因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)
+但是當原始資料的數據龐大時，會發現在抽樣完畢後，有些樣本並沒有被抽取到
+而這些樣本就被稱為Out of Bag(OOB)資料(袋外)
+除了上述訓練資料是被重複抽取之外，特徵也是如此
+隨機森林並不會將所有特徵一起考慮，而是會隨機抽取特徵(可設定參數max_features)
+進行每棵樹的訓練，以上述兩種方式來達到每棵樹近乎獨立的情況，目的是降低每棵樹之間的高度相關性，
+優點是提高模型的泛化能力，防止過擬合(Overfitting)的情況發生、增進預測穩定性與準確度
+演算法: 隨機森林的演算法與決策樹的演算法的核心概念是一樣的，差別只是在建立樹的方法不同而已(如上述)
+意即當應用在分類問題時，則採用吉尼不純度(Gini Impurity)或是鏑(Entropy)演算法作為分類依據
+當應用在迴歸問題時，通常採用最小平方誤差(MSE)(其他還有卜氏Possion)
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-05 11:30:00 +0800 CST'>March 5, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/randomforest/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
+$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/pca/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
+[1] “The Bank is a place where you put your money”
+[2] The Bee is an insect that gathers honey&#34;
+我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
+[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
+[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
 </figure>
   <header class="entry-header">
@@ -207,25 +270,6 @@ Bayesian hierarchical modeling makes use of two important concepts in deriving t
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Expectation maximization algorithm
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-Expectation-maximization algorithm
-又翻譯為「最大期望值演算法」 經過兩個步驟交替進行計算：
-第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值
-第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值 M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行
-引自維基百科 </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-12 11:00:00 +0800 CST'>January 12, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
-</article>
-
-<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/webcrawler.jpg" alt="20250110">
 </figure>
   <header class="entry-header">
@@ -261,6 +305,28 @@ $ x_i=(1, X_1, …, X_n)^T $ And for $ Y = (Y_1, …, Y_n)^T $, We have: $$ Y = 
   </div>
   <footer class="entry-footer"><span title='2024-10-04 16:02:00 +0800 CST'>October 4, 2024</span>&nbsp;·&nbsp;2 min</footer>
   <a class="entry-link" aria-label="post link to Least square estimator of β in linear regression" href="http://localhost:1313/posts/lseofbeta/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/LR.png" alt="20240930">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Linear Regression Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD Simple linear regression 給定一組已知的(X, y)，其中X，y皆為連續變項
+線性迴歸就是由X來預測y 我們總是優先繪製散佈圖，觀察兩變項的變動趨勢
+是第一種情況:X愈高，y愈高，還是第二種情況:X愈低，y愈低，又或者是第三種情況:y不會因為X的變動而跟著變動?
+第一種稱為正相關，第二種稱為負向關，第三種稱為零相關
+若X為一維，則稱為簡單迴歸，其迴歸線方程式為: $$
+$$
+若X為多維，則稱為複迴歸，其迴歸方程式為 $$
+$$
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-09-30 09:00:00 +0800 CST'>September 30, 2024</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Linear Regression Learning" href="http://localhost:1313/posts/simplelinearregression/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -301,18 +367,6 @@ $ x_i=(1, X_1, …, X_n)^T $ And for $ Y = (Y_1, …, Y_n)^T $, We have: $$ Y = 
   </div>
   <footer class="entry-footer"><span title='2024-09-16 00:00:00 +0800 CST'>September 16, 2024</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to My 1st post" href="http://localhost:1313/posts/01/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p></p>
-  </div>
-  <footer class="entry-footer">0 min</footer>
-  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/posts/suportvectormachine/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

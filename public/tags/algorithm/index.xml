@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Algorithm on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/algorithm/</link>
+    <description>Recent content in Algorithm on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Thu, 03 Jul 2025 11:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Expectation maximization algorithm</title>
+      <link>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Thu, 03 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Expectation-maximization algorithm -「最大期望值演算法」&lt;/li&gt;
+&lt;li&gt;經過兩個步驟交替進行計算：&lt;br&gt;
+第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值&lt;br&gt;
+第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值
+M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行&lt;br&gt;
+&lt;strong&gt;引自維基百科&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;example-from-finalterm&#34;&gt;Example from finalterm&lt;/h3&gt;
+&lt;p&gt;Assume that $Y_1, Y_2, &amp;hellip;, Y_n ~ exp(\theta)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consider the MLE of $\theta$ based on $Y_1, Y_2, &amp;hellip;, Y_n$&lt;/li&gt;
+&lt;li&gt;Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$,  $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^&lt;em&gt;_4=1.2$ and $y^&lt;/em&gt;_5=2.3$ before the light bulb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

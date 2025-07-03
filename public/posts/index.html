@@ -160,6 +160,42 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Expectation maximization algorithm
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Expectation-maximization algorithm -「最大期望值演算法」 經過兩個步驟交替進行計算：
+第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值
+第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值 M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行
+引自維基百科 Example from finalterm Assume that $Y_1, Y_2, …, Y_n ~ exp(\theta)$
+Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^_4=1.2$ and $y^_5=2.3$ before the light bulb </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-03 11:00:00 +0800 CST'>July 3, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/XGBoost.webp" alt="20250330">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">XGBoost Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🦹 XGBoost Boost What is XGBoost? Think of XGBoost as a team of smart tutors, each correcting the mistakes made by the previous one, gradually improving your answers step by step.
+🗝 Key Concepts in XGBoost Tree Building Start with an initial guess (e.g., average score). Measure how far off the prediction is from the real answer (this is called the residual). The next tree learns how to fix these errors. Every new tree improves on the mistakes of the previous trees. 🥢 How to Divide the Data (Not Randomly) XGBoost doesn’t split data based on traditional methods like information gain. It uses a formula called Gain, which measures how much a split improves prediction. A split only happens if:
+(Left &#43; Right Score) &gt; (Parent Score &#43; Penalty) ❓ How do we know if a split is good? Use a value called Similarity Score The higher the score, the more consistent (similar) the residuals are in that group 🐢 Two Ways to Find Splits: Accurate- Exact Greedy Algorithm Try all possible features and split points Very accurate but very slow 🐇 Two Ways to Find Splits: Fast- Approximate Algorithm Uses feature quantiles (e.g., median) to propose a few split points Group the data based on these splits and evaluate the best one Two options: Global Proposal: use global info to suggest splits Local Proposal: use local (node-specific) info 🏋 Weighted Quantile Sketch Some data points are more important (like how teachers focus more on students who struggle) Each data point has a weight based on how wrong it was (second-order gradient) Use these weights to suggest better and more meaningful split points 🕳 Handling Missing Values What if some feature values are missing? XGBoost learns a default path for missing data This makes the model more robust even when the data isn’t complete 🧚‍♀️ Controlling Model Complexity: Regularization Gamma (γ)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-30 08:00:00 +0800 CST'>March 30, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/xgboost/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
 </figure>
   <header class="entry-header">
@@ -192,6 +228,20 @@ $$ P(x_i \mid y, x_1, …, x_{i-1}, x_{i&#43;1}, …, x_n) = P(x_i \mid y) $$
 </article>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Support Vector Machine Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪡 Support Vector Machine</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-03-21 16:40:00 +0800 CST'>March 21, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Support Vector Machine Learning" href="http://localhost:1313/posts/suportvectormachine/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/gradient.webp" alt="20250320">
 </figure>
   <header class="entry-header">
@@ -199,7 +249,7 @@ $$ P(x_i \mid y, x_1, …, x_{i-1}, x_{i&#43;1}, …, x_n) = P(x_i \mid y) $$
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD Gradient Boost</p>
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🎲 Gradient Boost</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-20 08:20:00 +0800 CST'>March 20, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to GradientBoost Learning" href="http://localhost:1313/posts/gradientboost/"></a>
@@ -271,75 +321,11 @@ A logistic function or a logistic curve is a commond S-shaped curve (sigmoid cur
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD AdaBoosting, a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪴AdaBoosting a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
 </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-07 08:20:00 +0800 CST'>March 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to AdaBoost Learning" href="http://localhost:1313/posts/adaboost/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/RF.png" alt="20250305">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">RandomForest Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 隨機森林基本概要
-由多棵決策樹聚集而成的森林
-方法:
-從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)
-因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)
-但是當原始資料的數據龐大時，會發現在抽樣完畢後，有些樣本並沒有被抽取到
-而這些樣本就被稱為Out of Bag(OOB)資料(袋外)
-除了上述訓練資料是被重複抽取之外，特徵也是如此
-隨機森林並不會將所有特徵一起考慮，而是會隨機抽取特徵(可設定參數max_features)
-進行每棵樹的訓練，以上述兩種方式來達到每棵樹近乎獨立的情況，目的是降低每棵樹之間的高度相關性，
-優點是提高模型的泛化能力，防止過擬合(Overfitting)的情況發生、增進預測穩定性與準確度
-演算法: 隨機森林的演算法與決策樹的演算法的核心概念是一樣的，差別只是在建立樹的方法不同而已(如上述)
-意即當應用在分類問題時，則採用吉尼不純度(Gini Impurity)或是鏑(Entropy)演算法作為分類依據
-當應用在迴歸問題時，通常採用最小平方誤差(MSE)(其他還有卜氏Possion)
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-05 11:30:00 +0800 CST'>March 5, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/randomforest/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
-$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/pca/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
-[1] “The Bank is a place where you put your money”
-[2] The Bee is an insect that gathers honey&#34;
-我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
-[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
-[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

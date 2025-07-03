@@ -14,8 +14,8 @@
       <pubDate>Wed, 05 Mar 2025 11:30:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/randomforest/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;p&gt;隨機森林基本概要&lt;br&gt;
-由多棵決策樹聚集而成的森林&lt;br&gt;
+&lt;h3 id=&#34;-隨機森林基本概要&#34;&gt;🌳 隨機森林基本概要&lt;/h3&gt;
+&lt;p&gt;由多棵決策樹聚集而成的森林&lt;br&gt;
 方法:&lt;br&gt;
 從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)&lt;br&gt;
 因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)&lt;br&gt;
