@@ -160,60 +160,6 @@
 </header>
 
 <article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
-$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/pca/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
-[1] “The Bank is a place where you put your money”
-[2] The Bee is an insect that gathers honey&#34;
-我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
-[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
-[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Text Mining with R: Chapter3
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-Analyzing word and document frequency: tf-idf Term Frequency(tf): How frequently a word occurs in a document
-詞頻: 單詞出現在文檔的頻率 Inverse Document Frequency(idf): use to decrease the weight for commonly used words and increase the weight for words that are not used very much in a collection of documents
-逆文檔頻率: 文檔中出現愈多次的單詞，其權重愈低；反之則愈低。即衡量某詞在所有文檔中分佈的稀疏程度，是一種懲罰項 。 並定義為： $$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)$$ 其中分子$n_{documents}$是文檔總數，分母$n_{documents containing term}$是包含該詞的文檔總數， 若某單詞出現在文檔的次數少，表示分母小，其 IDF 大，重要性高，權重高；反之出現的次數多，表示分母大，其 IDF 小，重要性低，權重低。 取對數則是為了減少極端數值，使 IDF 分佈更加平滑。 tf-idf的目標是用於識別在單一文檔中有價值、但不常見的單詞（詞彙）
-Zipf’s law ( 齊夫定律) 一種描述自然語言中單詞使用頻率分佈的統計規律，其宣稱單詞的頻率與其在文檔裡的頻率排名成反比，即：$$frequency \propto \frac{1}{rank} $$ 出現頻率第一名的單詞的次數會是出現頻率第二名的單詞的次數的兩倍，會是出現頻率第三名的單詞的次數的三倍…依此類推，會是出現頻率第 N 名的單詞的次數的 N 倍 若將排名 x 與出現頻率 y 取對數，即 logx 、 logy ，若整個文檔的坐標點標出來接近一直線，則該文檔符合 Zipf’s law </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-24 15:02:00 +0800 CST'>January 24, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter3" href="http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayesian1.jpg" alt="20250113">
 </figure>
   <header class="entry-header">
@@ -239,29 +185,7 @@ Bayesian hierarchical modeling makes use of two important concepts in deriving t
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-01-13 15:00:00 +0800 CST'>January 13, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Hirarchical bayesian modeling" href="http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/LR.png" alt="20240930">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linear Regression Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD Simple linear regression 給定一組已知的(X, y)，其中X，y皆為連續變項
-線性迴歸就是由X來預測y 我們總是優先繪製散佈圖，觀察兩變項的變動趨勢
-是第一種情況:X愈高，y愈高，還是第二種情況:X愈低，y愈低，又或者是第三種情況:y不會因為X的變動而跟著變動?
-第一種稱為正相關，第二種稱為負向關，第三種稱為零相關
-若X為一維，則稱為簡單迴歸，其迴歸線方程式為: $$
-$$
-若X為多維，則稱為複迴歸，其迴歸方程式為 $$
-$$
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-09-30 09:00:00 +0800 CST'>September 30, 2024</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Linear Regression Learning" href="http://localhost:1313/posts/simplelinearregression/"></a>
+  <a class="entry-link" aria-label="post link to Hirarchical bayesian modeling" href="http://localhost:1313/posts/20250113_%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

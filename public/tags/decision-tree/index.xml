@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/decision-tree/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decision &amp; Classification Tree Learning</title>
-      <link>http://localhost:1313/posts/decisionclassificationtrees/</link>
+      <link>http://localhost:1313/posts/20250318_decisiontrees/</link>
       <pubDate>Tue, 18 Mar 2025 16:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/decisionclassificationtrees/</guid>
+      <guid>http://localhost:1313/posts/20250318_decisiontrees/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h3 id=&#34;-what-is-decision-tree&#34;&gt;🤔 What is decision tree?&lt;/h3&gt;
 &lt;p&gt;Decision tree is a system that relies on evaluating conditions as &lt;em&gt;True&lt;/em&gt; or &lt;em&gt;False&lt;/em&gt; to make decisions, such as in classification or regression.&lt;br&gt;

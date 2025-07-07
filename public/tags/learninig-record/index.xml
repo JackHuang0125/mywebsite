@@ -6,13 +6,20 @@
     <description>Recent content in Learninig Record on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Thu, 03 Jul 2025 11:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 11:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/learninig-record/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>20250710 Meeting</title>
+      <link>http://localhost:1313/posts/20250710_meeting/</link>
+      <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20250710_meeting/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Expectation maximization algorithm</title>
-      <link>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
+      <link>http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
       <pubDate>Thu, 03 Jul 2025 11:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
+      <guid>http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Expectation-maximization algorithm -「最大期望值演算法」&lt;/li&gt;
@@ -24,18 +31,20 @@ M步上找到的參數估計值被用於下一個E步計算中，這個過程不
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;example-from-finalterm&#34;&gt;Example from finalterm&lt;/h3&gt;
-&lt;p&gt;Assume that $Y_1, Y_2, &amp;hellip;, Y_n ~ exp(\theta)$&lt;/p&gt;
+&lt;p&gt;Assume that $Y_1, Y_2, &amp;hellip;, Y_n ～ exp(\theta)$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Consider the MLE of $\theta$ based on $Y_1, Y_2, &amp;hellip;, Y_n$&lt;/li&gt;
-&lt;li&gt;Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$,  $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^&lt;em&gt;_4=1.2$ and $y^&lt;/em&gt;_5=2.3$ before the light bulb&lt;/li&gt;
+&lt;li&gt;Suppose that 5 observed samples are collected from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$,  $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^*_4=1.2$ and $y^*_5=2.3$ before the light bulb die.
+Based on ($y_1, y_2, y_3, y^*_4, y^*_5$), please use EM algorithm to estimate $\theta$.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</description>
+&lt;h3 id=&#34;solve&#34;&gt;Solve&lt;/h3&gt;
+&lt;p&gt;　　With observed lifetimes: $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ and  $y^*_4=1.2$, $y^*_5=2.3$, meaning the actual lifetimes $Z_4&amp;gt;1.2$, $Z_5&amp;gt;2.3$ are unknown. So we treat $Z_4$ and $Z_5$ as latent variables, and have the complete likelihood like:&lt;/p&gt;</description>
     </item>
     <item>
       <title>XGBoost Learning</title>
-      <link>http://localhost:1313/posts/xgboost/</link>
+      <link>http://localhost:1313/posts/20250330_extremegradientboost/</link>
       <pubDate>Sun, 30 Mar 2025 08:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/xgboost/</guid>
+      <guid>http://localhost:1313/posts/20250330_extremegradientboost/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h1 id=&#34;-xgboost-boost&#34;&gt;🦹 XGBoost Boost&lt;/h1&gt;
 &lt;h3 id=&#34;what-is-xgboost&#34;&gt;What is XGBoost?&lt;/h3&gt;
@@ -101,17 +110,10 @@ M步上找到的參數估計值被用於下一個E步計算中，這個過程不
 &lt;p&gt;Gamma (γ)&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Linear Discriminant Analysis Learning</title>
-      <link>http://localhost:1313/posts/lineardiscriminantanalysis/</link>
-      <pubDate>Sat, 22 Mar 2025 23:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/lineardiscriminantanalysis/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;</description>
-    </item>
-    <item>
       <title>Naive &amp; Gaussian Bayes Learning</title>
-      <link>http://localhost:1313/posts/naivebayes/</link>
+      <link>http://localhost:1313/posts/20250321_naivebayes/</link>
       <pubDate>Fri, 21 Mar 2025 16:40:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/naivebayes/</guid>
+      <guid>http://localhost:1313/posts/20250321_naivebayes/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h3 id=&#34;-naive-bayes&#34;&gt;👶 Naive Bayes&lt;/h3&gt;
 &lt;p&gt;By definition of Bayes&amp;rsquo; theorem
@@ -130,26 +132,10 @@ P(x_i \mid y, x_1, &amp;hellip;, x_{i-1}, x_{i+1}, &amp;hellip;, x_n) = P(x_i \m
 $$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Support Vector Machine Learning</title>
-      <link>http://localhost:1313/posts/suportvectormachine/</link>
-      <pubDate>Fri, 21 Mar 2025 16:40:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/suportvectormachine/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h3 id=&#34;-support-vector-machine&#34;&gt;🪡 Support Vector Machine&lt;/h3&gt;</description>
-    </item>
-    <item>
-      <title>GradientBoost Learning</title>
-      <link>http://localhost:1313/posts/gradientboost/</link>
-      <pubDate>Thu, 20 Mar 2025 08:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/gradientboost/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h1 id=&#34;-gradient-boost&#34;&gt;🎲 Gradient Boost&lt;/h1&gt;</description>
-    </item>
-    <item>
       <title>Decision &amp; Classification Tree Learning</title>
-      <link>http://localhost:1313/posts/decisionclassificationtrees/</link>
+      <link>http://localhost:1313/posts/20250318_decisiontrees/</link>
       <pubDate>Tue, 18 Mar 2025 16:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/decisionclassificationtrees/</guid>
+      <guid>http://localhost:1313/posts/20250318_decisiontrees/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h3 id=&#34;-what-is-decision-tree&#34;&gt;🤔 What is decision tree?&lt;/h3&gt;
 &lt;p&gt;Decision tree is a system that relies on evaluating conditions as &lt;em&gt;True&lt;/em&gt; or &lt;em&gt;False&lt;/em&gt; to make decisions, such as in classification or regression.&lt;br&gt;
@@ -158,9 +144,9 @@ it a &lt;strong&gt;classification tree&lt;/strong&gt;; On the other hand, when t
     </item>
     <item>
       <title>Logistic Regression Learning</title>
-      <link>http://localhost:1313/posts/logisticregression/</link>
+      <link>http://localhost:1313/posts/20250311_logisticregression/</link>
       <pubDate>Tue, 11 Mar 2025 09:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/logisticregression/</guid>
+      <guid>http://localhost:1313/posts/20250311_logisticregression/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;p&gt;Logistic Function (aka logit, MaxEnt) classifier, which means that it is also known as logit regression,
 maximum-entropy classification(MaxEnt) or the log-linear classifier.&lt;br&gt;
@@ -175,19 +161,10 @@ $$ f(x) = \frac{L}{1+e^{-k(x-x_o)}}$$
 where:&lt;/p&gt;</description>
     </item>
     <item>
-      <title>AdaBoost Learning</title>
-      <link>http://localhost:1313/posts/adaboost/</link>
-      <pubDate>Fri, 07 Mar 2025 08:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/adaboost/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h3 id=&#34;adaboosting&#34;&gt;🪴AdaBoosting&lt;/h3&gt;
-&lt;p&gt;a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>RandomForest Learning</title>
-      <link>http://localhost:1313/posts/randomforest/</link>
+      <link>http://localhost:1313/posts/20250305_randomforest/</link>
       <pubDate>Wed, 05 Mar 2025 11:30:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/randomforest/</guid>
+      <guid>http://localhost:1313/posts/20250305_randomforest/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h3 id=&#34;-隨機森林基本概要&#34;&gt;🌳 隨機森林基本概要&lt;/h3&gt;
 &lt;p&gt;由多棵決策樹聚集而成的森林&lt;br&gt;
@@ -207,9 +184,9 @@ where:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Principal Component Analysis(PCA) Learning</title>
-      <link>http://localhost:1313/posts/pca/</link>
+      <link>http://localhost:1313/posts/20250204_principalcomponentanalysis/</link>
       <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/pca/</guid>
+      <guid>http://localhost:1313/posts/20250204_principalcomponentanalysis/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h4 id=&#34;這篇文章利用-chat-gpt-翻譯成英文邊唸邊打純手打無複製貼上順便練英文-xd&#34;&gt;這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD&lt;/h4&gt;
 &lt;p&gt;We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically
@@ -234,9 +211,9 @@ information as possible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Text Mining with R: Chapter4</title>
-      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <link>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
       <pubDate>Sun, 26 Jan 2025 13:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;tokenizing-by-n-gram-n-gram-分詞&#34;&gt;Tokenizing by n-gram (n-gram 分詞)&lt;/h3&gt;
 &lt;ol&gt;
@@ -250,9 +227,9 @@ information as possible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Text Mining with R: Chapter3</title>
-      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
+      <link>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
       <pubDate>Fri, 24 Jan 2025 15:02:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;analyzing-word-and-document-frequency-tf-idf&#34;&gt;Analyzing word and document frequency: tf-idf&lt;/h3&gt;
 &lt;ol&gt;
@@ -276,9 +253,9 @@ $$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)
     </item>
     <item>
       <title>Hirarchical bayesian modeling</title>
-      <link>http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</link>
+      <link>http://localhost:1313/posts/20250113_%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</link>
       <pubDate>Mon, 13 Jan 2025 15:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</guid>
+      <guid>http://localhost:1313/posts/20250113_%E8%B2%9D%E6%B0%8F%E5%88%86%E5%B1%A4%E5%BB%BA%E6%A8%A1/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Bayesian hierarchical modeling，譯為「貝氏分層建模」&lt;br&gt;
@@ -308,25 +285,6 @@ Bayesian hierarchical modeling makes use of two important concepts in deriving t
 　 超參數的分配&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如：我們需要建模學校的學生測驗成績&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Linear Regression Learning</title>
-      <link>http://localhost:1313/posts/simplelinearregression/</link>
-      <pubDate>Mon, 30 Sep 2024 09:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/simplelinearregression/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
-&lt;h3 id=&#34;simple-linear-regression&#34;&gt;Simple linear regression&lt;/h3&gt;
-&lt;p&gt;給定一組已知的(X, y)，其中X，y皆為連續變項&lt;br&gt;
-線性迴歸就是由X來預測y
-我們總是優先繪製散佈圖，觀察兩變項的變動趨勢&lt;br&gt;
-是第一種情況:X愈高，y愈高，還是第二種情況:X愈低，y愈低，又或者是第三種情況:y不會因為X的變動而跟著變動?&lt;br&gt;
-第一種稱為正相關，第二種稱為負向關，第三種稱為零相關&lt;/p&gt;
-&lt;p&gt;若X為一維，則稱為簡單迴歸，其迴歸線方程式為:
-$$&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;
-&lt;p&gt;若X為多維，則稱為複迴歸，其迴歸方程式為
-$$&lt;/p&gt;
-&lt;p&gt;$$&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

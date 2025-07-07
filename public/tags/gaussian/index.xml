@@ -6,20 +6,13 @@
     <description>Recent content in Gaussian on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 22 Mar 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 21 Mar 2025 16:40:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/gaussian/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linear Discriminant Analysis Learning</title>
-      <link>http://localhost:1313/posts/lineardiscriminantanalysis/</link>
-      <pubDate>Sat, 22 Mar 2025 23:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/lineardiscriminantanalysis/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;</description>
-    </item>
-    <item>
       <title>Naive &amp; Gaussian Bayes Learning</title>
-      <link>http://localhost:1313/posts/naivebayes/</link>
+      <link>http://localhost:1313/posts/20250321_naivebayes/</link>
       <pubDate>Fri, 21 Mar 2025 16:40:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/naivebayes/</guid>
+      <guid>http://localhost:1313/posts/20250321_naivebayes/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h3 id=&#34;-naive-bayes&#34;&gt;👶 Naive Bayes&lt;/h3&gt;
 &lt;p&gt;By definition of Bayes&amp;rsquo; theorem

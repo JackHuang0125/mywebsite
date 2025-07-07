@@ -160,6 +160,34 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/ChatGPT.png" alt="20250707">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">20250707 LDA的理解與AI的修正
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前情提要 這裡的 LDA 指的是 Latent Dirichlet Allocation 隱含狄利克雷分佈
+不是 Linear Discriminant Analysis
+關於 LDA 一種主題模型, 由 Blei, D. M. 等人在2003年提出, 是一種無監督式的學習（unsupervised learning）
+主要用途是將文本的主題按機率向量的方式提出, 且每個主題都有其相呼的文字可以對照
+其結構主要是多層的貝氏網絡組成, 起初是EM演算法來估計參數, 而後改成用Gibbs Sampling來估計參數
+詳細內容請參考維基百科（點擊後開啟網站）或論文（點擊後開啟 pdf 檔案）
+本篇主旨 在閱讀相關文獻之後, 因為其核心觀念來自於多層的貝氏網絡, 如圖 取自文獻
+所以我個人提出了對於 LDA 架構的看法, 並丟進 Chat GPT-4o 模型來修正我的觀念
+以下是我和 GPT 的對話
+我：
+給定一個來自迪利克雷分布的參數alpha, 第d個文件theta有topic1,topic2,topic3…的機率向量, 各個topic又有共同的詞彙w1,w2,w3..的機率分布, 我們要知道的是在第d個文件theta之下的topic機率與第topic下的w1的機率乘機總和(條件機率的概念), 來得知這個d文件擁有這些w1,w2,w3…的機率, 最後再乘上給定eta參數的beta分布下的k主題, 來決定每個w來自哪個主題, 因此得到該文件屬於哪個主題
+GPT：
+✅ 你說得對的部分：
+✔️ $α$ 是來自 Dirichlet 分布的超參數，控制每個文件的主題分布 $θ$。 ✔️ 每個主題 $k$ 有一個詞語分布 $φ_k$，控制該主題產生哪些詞（$w1, w2, …$）的機率。 ✔️ 文件生成詞的機率可由：「主題機率 × 詞在該主題下的機率」來決定。 ✔️ 對每個詞 $w$，模型要根據 $θ$ 和 $φ_k$ 來計算它來自哪個主題的機率。 ✔️ $η$ 是 Dirichlet 的超參數，控制每個 $φ_k$（主題的詞分布）的稀疏性。 🔧 需要調整與補強的地方：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to 20250707 LDA的理解與AI的修正" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
 </figure>
   <header class="entry-header">
@@ -171,11 +199,12 @@
 Expectation-maximization algorithm -「最大期望值演算法」 經過兩個步驟交替進行計算：
 第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值
 第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值 M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行
-引自維基百科 Example from finalterm Assume that $Y_1, Y_2, …, Y_n ~ exp(\theta)$
-Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^_4=1.2$ and $y^_5=2.3$ before the light bulb </p>
+引自維基百科 Example from finalterm Assume that $Y_1, Y_2, …, Y_n ～ exp(\theta)$
+Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observed samples are collected from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^*_4=1.2$ and $y^*_5=2.3$ before the light bulb die. Based on ($y_1, y_2, y_3, y^*_4, y^*_5$), please use EM algorithm to estimate $\theta$. Solve With observed lifetimes: $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ and $y^*_4=1.2$, $y^*_5=2.3$, meaning the actual lifetimes $Z_4&gt;1.2$, $Z_5&gt;2.3$ are unknown. So we treat $Z_4$ and $Z_5$ as latent variables, and have the complete likelihood like:
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-03 11:00:00 +0800 CST'>July 3, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
+  <footer class="entry-footer"><span title='2025-07-03 11:00:00 +0800 CST'>July 3, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -192,21 +221,7 @@ Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observ
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-30 08:00:00 +0800 CST'>March 30, 2025</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/xgboost/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linear Discriminant Analysis Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-22 23:00:00 +0800 CST'>March 22, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Linear Discriminant Analysis Learning" href="http://localhost:1313/posts/lineardiscriminantanalysis/"></a>
+  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/20250330_extremegradientboost/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -224,35 +239,7 @@ $$ P(x_i \mid y, x_1, …, x_{i-1}, x_{i&#43;1}, …, x_n) = P(x_i \mid y) $$
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-21 16:40:00 +0800 CST'>March 21, 2025</span>&nbsp;·&nbsp;3 min</footer>
-  <a class="entry-link" aria-label="post link to Naive & Gaussian Bayes Learning" href="http://localhost:1313/posts/naivebayes/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Support Vector Machine Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪡 Support Vector Machine</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-21 16:40:00 +0800 CST'>March 21, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Support Vector Machine Learning" href="http://localhost:1313/posts/suportvectormachine/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/gradient.webp" alt="20250320">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GradientBoost Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🎲 Gradient Boost</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-20 08:20:00 +0800 CST'>March 20, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to GradientBoost Learning" href="http://localhost:1313/posts/gradientboost/"></a>
+  <a class="entry-link" aria-label="post link to Naive & Gaussian Bayes Learning" href="http://localhost:1313/posts/20250321_naivebayes/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -268,7 +255,7 @@ When the tree needs to classify something into class A or class B, or even into 
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-18 16:20:00 +0800 CST'>March 18, 2025</span>&nbsp;·&nbsp;3 min</footer>
-  <a class="entry-link" aria-label="post link to Decision & Classification Tree Learning" href="http://localhost:1313/posts/decisionclassificationtrees/"></a>
+  <a class="entry-link" aria-label="post link to Decision & Classification Tree Learning" href="http://localhost:1313/posts/20250318_decisiontrees/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -292,7 +279,7 @@ $$ E( \hat{I}_M)=E\left[\frac{1}{n} \sum^n_{i=1} \frac{f(X_i)}{p(X_i)} \right]=\
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-18 11:00:00 +0800 CST'>March 18, 2025</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to Statistical Computing HW_0320" href="http://localhost:1313/posts/%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/"></a>
+  <a class="entry-link" aria-label="post link to Statistical Computing HW_0320" href="http://localhost:1313/posts/20250318_%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -310,22 +297,70 @@ A logistic function or a logistic curve is a commond S-shaped curve (sigmoid cur
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-11 09:20:00 +0800 CST'>March 11, 2025</span>&nbsp;·&nbsp;5 min</footer>
-  <a class="entry-link" aria-label="post link to Logistic Regression Learning" href="http://localhost:1313/posts/logisticregression/"></a>
+  <a class="entry-link" aria-label="post link to Logistic Regression Learning" href="http://localhost:1313/posts/20250311_logisticregression/"></a>
 </article>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Ada.webp" alt="20250307">
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/RF.png" alt="20250305">
 </figure>
   <header class="entry-header">
-    <h2 class="entry-hint-parent">AdaBoost Learning
+    <h2 class="entry-hint-parent">RandomForest Learning
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪴AdaBoosting a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🌳 隨機森林基本概要 由多棵決策樹聚集而成的森林
+方法:
+從原始資料中以取後放回的方式抽取資料，建立每棵決策樹的訓練資料(training datasets)
+因此有些樣本會被重複選中，這樣的抽樣法又稱為Boostraping(拔靴法)
+但是當原始資料的數據龐大時，會發現在抽樣完畢後，有些樣本並沒有被抽取到
+而這些樣本就被稱為Out of Bag(OOB)資料(袋外)
+除了上述訓練資料是被重複抽取之外，特徵也是如此
+隨機森林並不會將所有特徵一起考慮，而是會隨機抽取特徵(可設定參數max_features)
+進行每棵樹的訓練，以上述兩種方式來達到每棵樹近乎獨立的情況，目的是降低每棵樹之間的高度相關性，
+優點是提高模型的泛化能力，防止過擬合(Overfitting)的情況發生、增進預測穩定性與準確度
+演算法: 隨機森林的演算法與決策樹的演算法的核心概念是一樣的，差別只是在建立樹的方法不同而已(如上述)
+意即當應用在分類問題時，則採用吉尼不純度(Gini Impurity)或是鏑(Entropy)演算法作為分類依據
+當應用在迴歸問題時，通常採用最小平方誤差(MSE)(其他還有卜氏Possion)
 </p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-07 08:20:00 +0800 CST'>March 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to AdaBoost Learning" href="http://localhost:1313/posts/adaboost/"></a>
+  <footer class="entry-footer"><span title='2025-03-05 11:30:00 +0800 CST'>March 5, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/20250305_randomforest/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
+$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/20250204_principalcomponentanalysis/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
+[1] “The Bank is a place where you put your money”
+[2] The Bee is an insect that gathers honey&#34;
+我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
+[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
+[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

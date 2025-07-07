@@ -163,6 +163,21 @@
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
 </figure>
   <header class="entry-header">
+    <h2 class="entry-hint-parent">20250710 Meeting
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to 20250710 Meeting" href="http://localhost:1313/posts/20250710_meeting/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
+</figure>
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Expectation maximization algorithm
     </h2>
   </header>
@@ -171,11 +186,12 @@
 Expectation-maximization algorithm -「最大期望值演算法」 經過兩個步驟交替進行計算：
 第一步是計算期望值（E）：利用對隱藏變量的現有估計值，計算其最大概似估計值
 第二步是最大化（M）：最大化在E步上求得的最大概似值來計算參數的值 M步上找到的參數估計值被用於下一個E步計算中，這個過程不斷交替進行
-引自維基百科 Example from finalterm Assume that $Y_1, Y_2, …, Y_n ~ exp(\theta)$
-Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observed samples are collec$ted from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^_4=1.2$ and $y^_5=2.3$ before the light bulb </p>
+引自維基百科 Example from finalterm Assume that $Y_1, Y_2, …, Y_n ～ exp(\theta)$
+Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observed samples are collected from the experiment which measures the life time of the light bulb. Assume $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ are complete experiment process. Because of the time limit, the fourth and fifth experiment are terminated at times $y^*_4=1.2$ and $y^*_5=2.3$ before the light bulb die. Based on ($y_1, y_2, y_3, y^*_4, y^*_5$), please use EM algorithm to estimate $\theta$. Solve With observed lifetimes: $y_1=1.5$, $y_2=0.58$, $y_3=3.4$ and $y^*_4=1.2$, $y^*_5=2.3$, meaning the actual lifetimes $Z_4&gt;1.2$, $Z_5&gt;2.3$ are unknown. So we treat $Z_4$ and $Z_5$ as latent variables, and have the complete likelihood like:
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-03 11:00:00 +0800 CST'>July 3, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
+  <footer class="entry-footer"><span title='2025-07-03 11:00:00 +0800 CST'>July 3, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to Expectation maximization algorithm" href="http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -192,21 +208,7 @@ Consider the MLE of $\theta$ based on $Y_1, Y_2, …, Y_n$ Suppose that 5 observ
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-30 08:00:00 +0800 CST'>March 30, 2025</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/xgboost/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linear Discriminant Analysis Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-22 23:00:00 +0800 CST'>March 22, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Linear Discriminant Analysis Learning" href="http://localhost:1313/posts/lineardiscriminantanalysis/"></a>
+  <a class="entry-link" aria-label="post link to XGBoost Learning" href="http://localhost:1313/posts/20250330_extremegradientboost/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -224,35 +226,7 @@ $$ P(x_i \mid y, x_1, …, x_{i-1}, x_{i&#43;1}, …, x_n) = P(x_i \mid y) $$
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-21 16:40:00 +0800 CST'>March 21, 2025</span>&nbsp;·&nbsp;3 min</footer>
-  <a class="entry-link" aria-label="post link to Naive & Gaussian Bayes Learning" href="http://localhost:1313/posts/naivebayes/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Bayes.webp" alt="20250322">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Support Vector Machine Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪡 Support Vector Machine</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-21 16:40:00 +0800 CST'>March 21, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Support Vector Machine Learning" href="http://localhost:1313/posts/suportvectormachine/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/gradient.webp" alt="20250320">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">GradientBoost Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🎲 Gradient Boost</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-20 08:20:00 +0800 CST'>March 20, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to GradientBoost Learning" href="http://localhost:1313/posts/gradientboost/"></a>
+  <a class="entry-link" aria-label="post link to Naive & Gaussian Bayes Learning" href="http://localhost:1313/posts/20250321_naivebayes/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -268,7 +242,7 @@ When the tree needs to classify something into class A or class B, or even into 
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-18 16:20:00 +0800 CST'>March 18, 2025</span>&nbsp;·&nbsp;3 min</footer>
-  <a class="entry-link" aria-label="post link to Decision & Classification Tree Learning" href="http://localhost:1313/posts/decisionclassificationtrees/"></a>
+  <a class="entry-link" aria-label="post link to Decision & Classification Tree Learning" href="http://localhost:1313/posts/20250318_decisiontrees/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -286,22 +260,7 @@ A logistic function or a logistic curve is a commond S-shaped curve (sigmoid cur
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-03-11 09:20:00 +0800 CST'>March 11, 2025</span>&nbsp;·&nbsp;5 min</footer>
-  <a class="entry-link" aria-label="post link to Logistic Regression Learning" href="http://localhost:1313/posts/logisticregression/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Ada.webp" alt="20250307">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AdaBoost Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 🪴AdaBoosting a popluar boosting algorithm, introduced in 1995 by Freund and Schapire.
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-03-07 08:20:00 +0800 CST'>March 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to AdaBoost Learning" href="http://localhost:1313/posts/adaboost/"></a>
+  <a class="entry-link" aria-label="post link to Logistic Regression Learning" href="http://localhost:1313/posts/20250311_logisticregression/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -328,7 +287,61 @@ A logistic function or a logistic curve is a commond S-shaped curve (sigmoid cur
 </p>
   </div>
   <footer class="entry-footer"><span title='2025-03-05 11:30:00 +0800 CST'>March 5, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/randomforest/"></a>
+  <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/20250305_randomforest/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
+$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/20250204_principalcomponentanalysis/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
+[1] “The Bank is a place where you put your money”
+[2] The Bee is an insect that gathers honey&#34;
+我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
+[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
+[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Text Mining with R: Chapter3
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Analyzing word and document frequency: tf-idf Term Frequency(tf): How frequently a word occurs in a document
+詞頻: 單詞出現在文檔的頻率 Inverse Document Frequency(idf): use to decrease the weight for commonly used words and increase the weight for words that are not used very much in a collection of documents
+逆文檔頻率: 文檔中出現愈多次的單詞，其權重愈低；反之則愈低。即衡量某詞在所有文檔中分佈的稀疏程度，是一種懲罰項 。 並定義為： $$idf(term) = ln\left(\frac{n_{documents}}{n_{documents containing term}}\right)$$ 其中分子$n_{documents}$是文檔總數，分母$n_{documents containing term}$是包含該詞的文檔總數， 若某單詞出現在文檔的次數少，表示分母小，其 IDF 大，重要性高，權重高；反之出現的次數多，表示分母大，其 IDF 小，重要性低，權重低。 取對數則是為了減少極端數值，使 IDF 分佈更加平滑。 tf-idf的目標是用於識別在單一文檔中有價值、但不常見的單詞（詞彙）
+Zipf’s law ( 齊夫定律) 一種描述自然語言中單詞使用頻率分佈的統計規律，其宣稱單詞的頻率與其在文檔裡的頻率排名成反比，即：$$frequency \propto \frac{1}{rank} $$ 出現頻率第一名的單詞的次數會是出現頻率第二名的單詞的次數的兩倍，會是出現頻率第三名的單詞的次數的三倍…依此類推，會是出現頻率第 N 名的單詞的次數的 N 倍 若將排名 x 與出現頻率 y 取對數，即 logx 、 logy ，若整個文檔的坐標點標出來接近一直線，則該文檔符合 Zipf’s law </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-24 15:02:00 +0800 CST'>January 24, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter3" href="http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

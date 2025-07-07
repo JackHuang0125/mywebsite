@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/categories/secondpost/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My 2nd post</title>
-      <link>http://localhost:1313/posts/02/</link>
+      <link>http://localhost:1313/posts/002/</link>
       <pubDate>Tue, 17 Sep 2024 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/02/</guid>
+      <guid>http://localhost:1313/posts/002/</guid>
       <description>&lt;p&gt;瞭解到HUGO有三種語法&lt;/p&gt;
 &lt;p&gt;分別是：JSON、TOML、YAML&lt;/p&gt;
 &lt;p&gt;因為TOML的內容格式類似PYTHON的，而我本人也比較習慣PYTHON的語法&lt;/p&gt;

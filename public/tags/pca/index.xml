@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/pca/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Principal Component Analysis(PCA) Learning</title>
-      <link>http://localhost:1313/posts/pca/</link>
+      <link>http://localhost:1313/posts/20250204_principalcomponentanalysis/</link>
       <pubDate>Tue, 04 Feb 2025 13:20:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/pca/</guid>
+      <guid>http://localhost:1313/posts/20250204_principalcomponentanalysis/</guid>
       <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;
 &lt;h4 id=&#34;這篇文章利用-chat-gpt-翻譯成英文邊唸邊打純手打無複製貼上順便練英文-xd&#34;&gt;這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD&lt;/h4&gt;
 &lt;p&gt;We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically

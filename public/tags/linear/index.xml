@@ -6,20 +6,13 @@
     <description>Recent content in Linear on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 22 Mar 2025 23:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 04 Oct 2024 16:02:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/linear/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linear Discriminant Analysis Learning</title>
-      <link>http://localhost:1313/posts/lineardiscriminantanalysis/</link>
-      <pubDate>Sat, 22 Mar 2025 23:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/lineardiscriminantanalysis/</guid>
-      <description>&lt;h4 id=&#34;這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd&#34;&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/h4&gt;</description>
-    </item>
-    <item>
       <title>Least square estimator of β in linear regression</title>
-      <link>http://localhost:1313/posts/lseofbeta/</link>
+      <link>http://localhost:1313/posts/20241004_leastsquareeestimator-of-beta/</link>
       <pubDate>Fri, 04 Oct 2024 16:02:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/lseofbeta/</guid>
+      <guid>http://localhost:1313/posts/20241004_leastsquareeestimator-of-beta/</guid>
       <description>&lt;h3 id=&#34;assume&#34;&gt;Assume&lt;/h3&gt;
 &lt;p&gt;$$ Y_i = \beta_o + \beta_1X_i+\varepsilon_i $$
 , for given $n$ observerd data $(x_i, Y_i)$, $\forall i=1～n$&lt;/p&gt;

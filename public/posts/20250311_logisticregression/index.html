@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Logistic Regression Learning | Yang&#39;s World</title>
+<meta name="keywords" content="Learninig Record, Regression">
+<meta name="description" content="這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
+Logistic Function (aka logit, MaxEnt) classifier, which means that it is also known as logit regression,
+maximum-entropy classification(MaxEnt) or the log-linear classifier.
+In this model, the probabilities from the outcome of predictions is using a logistic function.
+
+And what is logistic function?
+Let talk about it.
+Here comes from Wikipedia:
+
+A logistic function or a logistic curve is a commond S-shaped curve (sigmoid curve) with the equation:
+$$ f(x) = \frac{L}{1&#43;e^{-k(x-x_o)}}$$
+where:">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/20250311_logisticregression/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/20250311_logisticregression/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Yang&#39;s World (Alt + H)">Yang&#39;s World</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://tw.stock.yahoo.com/" title="YahooStock">
+                    <span>YahooStock</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Logistic Regression Learning
+    </h1>
+    <div class="post-meta"><span title='2025-03-11 09:20:00 +0800 CST'>March 11, 2025</span>&nbsp;·&nbsp;5 min
+
+</div>
+  </header> 
+<figure class="entry-cover"><a href="http://localhost:1313/LogisticRegression.webp" target="_blank"
+            rel="noopener noreferrer"><img loading="eager" src="http://localhost:1313/LogisticRegression.webp" alt="20250311"></a>
+        <p>LogisticRegression.webp by ChatGpt 4o</p>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#%e9%80%99%e6%98%af%e7%b5%a6%e8%87%aa%e5%b7%b1%e7%9a%84%e4%b8%80%e4%bb%bd%e5%ad%b8%e7%bf%92%e7%b4%80%e9%8c%84%e4%bb%a5%e5%85%8d%e6%97%a5%e5%ad%90%e4%b9%85%e4%ba%86%e5%bf%98%e8%a8%98%e9%80%99%e6%98%af%e7%94%9a%e9%ba%bc%e7%90%86%e8%ab%96xd" aria-label="這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD">這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD</a></li></ul>
+                    
+                <li>
+                    <a href="#and-what-is-logistic-function" aria-label="And what is logistic function?">And what is logistic function?</a></li>
+                <li>
+                    <a href="#let-talk-about-it" aria-label="Let talk about it.">Let talk about it.</a></li>
+                <li>
+                    <a href="#but-how-does-logistic-regression-find-the-best-estimators-for-making-predictions" aria-label="But how does logistic regression find the best estimators for making predictions?">But how does logistic regression find the best estimators for making predictions?</a></li>
+                <li>
+                    <a href="#here-is-the-process" aria-label="Here is the process">Here is the process</a></li>
+                <li>
+                    <a href="#1-target" aria-label="1. Target">1. Target</a></li>
+                <li>
+                    <a href="#2-how-to" aria-label="2. How to">2. How to</a></li>
+                <li>
+                    <a href="#3-mathematical" aria-label="3. Mathematical">3. Mathematical</a></li>
+                <li>
+                    <a href="#in-my-opinion" aria-label="In my opinion">In my opinion</a></li>
+                <li>
+                    <a href="#-modeling-with-sklearnlogisticregression" aria-label="🔧 Modeling with sklearn.LogisticRegression">🔧 Modeling with sklearn.LogisticRegression</a></li>
+                <li>
+                    <a href="#-modleing-with-statsmodelslogit" aria-label="🔨 Modleing with statsmodels.Logit">🔨 Modleing with statsmodels.Logit</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h4 id="這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd">這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD<a hidden class="anchor" aria-hidden="true" href="#這是給自己的一份學習紀錄以免日子久了忘記這是甚麼理論xd">#</a></h4>
+<p>Logistic Function (aka logit, MaxEnt) classifier, which means that it is also known as logit regression,
+maximum-entropy classification(MaxEnt) or the log-linear classifier.<br>
+In this model, the probabilities from the outcome of predictions is using a logistic function.</p>
+<hr>
+<h3 id="and-what-is-logistic-function">And what is logistic function?<a hidden class="anchor" aria-hidden="true" href="#and-what-is-logistic-function">#</a></h3>
+<h3 id="let-talk-about-it">Let talk about it.<a hidden class="anchor" aria-hidden="true" href="#let-talk-about-it">#</a></h3>
+<p>Here comes from <strong>Wikipedia</strong>:</p>
+<blockquote>
+<p>A logistic function or a logistic curve is a commond S-shaped curve (<strong>sigmoid curve</strong>) with the equation:
+$$ f(x) = \frac{L}{1+e^{-k(x-x_o)}}$$
+where:</p>
+<ul>
+<li>$L$ is the supremum of the values of the function</li>
+<li>$k$ is the logistic growth rate, the steepness of the curve</li>
+<li>$x_0$ is the $x$ value of the function&rsquo;s midpoint</li>
+</ul>
+</blockquote>
+<p>中譯:</p>
+<ul>
+<li>$L$ 是該函數(系統)一個最大上限，當 $x \to 0$ 時，則 $ f(x) \to L$</li>
+<li>$k$ 該曲線的陡峭程度，$k$ 愈小則分母愈大，整個 $f(x)$愈小，表示中間變化速度緩慢；反之則中間變化速度快</li>
+<li>$x_0$ 曲線當中變化速度最快的一點</li>
+</ul>
+<p>我們可以簡化該方程式：</p>
+<blockquote>
+<p>The standard logistic function, where $L=1, k=1, x_0=0$, has the euqation:
+$$ f(x) = \frac{1}{1+e^{-x}}$$</p>
+</blockquote>
+<p>and is also called sigmoid function, and it looks like:</p>
+<p><img alt="targets" loading="lazy" src="/images/sigmoid.png">
+We can know that:</p>
+<ul>
+<li>When $x=0, f(0)= \frac{1}{2}$</li>
+<li>When $x=\infty, f(\infty)= 1$</li>
+<li>When $x=-\infty, f(-\infty)=0$</li>
+</ul>
+<p>Therefore, we use this function because the logistic function ranges between 0 and 1 and is relatively simple among smooth functions</p>
+<hr>
+<h3 id="but-how-does-logistic-regression-find-the-best-estimators-for-making-predictions">But how does logistic regression find the best estimators for making predictions?<a hidden class="anchor" aria-hidden="true" href="#but-how-does-logistic-regression-find-the-best-estimators-for-making-predictions">#</a></h3>
+<h3 id="here-is-the-process">Here is the process<a hidden class="anchor" aria-hidden="true" href="#here-is-the-process">#</a></h3>
+<h3 id="1-target">1. Target<a hidden class="anchor" aria-hidden="true" href="#1-target">#</a></h3>
+<p>We suppose that:
+$$ f(X) = P(Y=1 \mid X) = \frac{1}{1+e^{-(W^TX)}} $$
+and we should know that:</p>
+<p>$$
+P(Y\mid X) =  f(X)　\text{if　} Y=1
+$$</p>
+<p>$$
+P(Y\mid X) =  1 - f(X)　\text{if　} Y=0
+$$</p>
+<hr>
+<h3 id="2-how-to">2. How to<a hidden class="anchor" aria-hidden="true" href="#2-how-to">#</a></h3>
+<p>Logistic regression uses the likelihood function to estimate parameters, allowing the model to make more precise predictions. So we
+define likelihood function:
+$$ L(W, b) = \Pi^n_{i=1}P\left(y_i \mid x_i \right) $$</p>
+<hr>
+<h3 id="3-mathematical">3. Mathematical<a hidden class="anchor" aria-hidden="true" href="#3-mathematical">#</a></h3>
+<p>Then we plug $P(Y\mid X)$ into the formula, so we have:
+$$ L(W, b) = \Pi^n_{i=1}\left(\frac{1}{1+e^{-(W^TX)}}\right)^{y_i}\left(1-\frac{1}{1+e^{-(W^TX)}}\right)^{1- y_i} $$
+and we take the log of likelihood function(log-likelihood):
+$$ lnL(W, b) = \Sigma^n_{i=1}\left[y_iln\left(\frac{1}{1+e^{-(W^TX)}}\right)\right] + (1- y_i)ln\left(1-\frac{1}{1+e^{-(W^TX)}}\right)$$</p>
+<p>then we use calculus and gradient descent to find the optimal parameter W. Finally,
+we ensure that the likelihood function reaches its maximum, which corresponds to the MLE solution.</p>
+<hr>
+<h3 id="in-my-opinion">In my opinion<a hidden class="anchor" aria-hidden="true" href="#in-my-opinion">#</a></h3>
+<p>It is easy to see that using linear regression for predicting or classifying binary classes can be highly influenced by outliers.<br>
+A small change in the data can cause a data point to switch from Class 1 to Class 2 unpredictably, which is unreasonable.
+To address this issue and improve the regression model for binary classification, we use a logistic function that better fits the binary class data.</p>
+<hr>
+<h3 id="-modeling-with-sklearnlogisticregression">🔧 Modeling with sklearn.LogisticRegression<a hidden class="anchor" aria-hidden="true" href="#-modeling-with-sklearnlogisticregression">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>coloumns_name <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Length&#39;</span>, <span style="color:#e6db74">&#39;Left&#39;</span>, <span style="color:#e6db74">&#39;Right&#39;</span>, <span style="color:#e6db74">&#39;Bottom&#39;</span>, <span style="color:#e6db74">&#39;Top&#39;</span>, <span style="color:#e6db74">&#39;Diagonal&#39;</span>]
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;bank2.dat&#39;</span>, delim_whitespace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, header<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, names<span style="color:#f92672">=</span>coloumns_name)
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>head()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>   Length   Left  Right  Bottom   Top  Diagonal    Class
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">214.8</span>  <span style="color:#ae81ff">131.0</span>  <span style="color:#ae81ff">131.1</span>     <span style="color:#ae81ff">9.0</span>   <span style="color:#ae81ff">9.7</span>     <span style="color:#ae81ff">141.0</span>  Genuine
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">214.6</span>  <span style="color:#ae81ff">129.7</span>  <span style="color:#ae81ff">129.7</span>     <span style="color:#ae81ff">8.1</span>   <span style="color:#ae81ff">9.5</span>     <span style="color:#ae81ff">141.7</span>  Genuine
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>   <span style="color:#ae81ff">214.8</span>  <span style="color:#ae81ff">129.7</span>  <span style="color:#ae81ff">129.7</span>     <span style="color:#ae81ff">8.7</span>   <span style="color:#ae81ff">9.6</span>     <span style="color:#ae81ff">142.2</span>  Genuine
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>   <span style="color:#ae81ff">214.8</span>  <span style="color:#ae81ff">129.7</span>  <span style="color:#ae81ff">129.6</span>     <span style="color:#ae81ff">7.5</span>  <span style="color:#ae81ff">10.4</span>     <span style="color:#ae81ff">142.0</span>  Genuine
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>   <span style="color:#ae81ff">215.0</span>  <span style="color:#ae81ff">129.6</span>  <span style="color:#ae81ff">129.7</span>    <span style="color:#ae81ff">10.4</span>   <span style="color:#ae81ff">7.7</span>     <span style="color:#ae81ff">141.8</span>  Genuine
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data<span style="color:#f92672">.</span>info()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">pandas</span><span style="color:#f92672">.</span>core<span style="color:#f92672">.</span>frame<span style="color:#f92672">.</span>DataFrame<span style="color:#e6db74">&#39;&gt;</span>
+</span></span><span style="display:flex;"><span>RangeIndex: <span style="color:#ae81ff">200</span> entries, <span style="color:#ae81ff">0</span> to <span style="color:#ae81ff">199</span>
+</span></span><span style="display:flex;"><span>Data columns (total <span style="color:#ae81ff">7</span> columns):
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">#   Column    Non-Null Count  Dtype  </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>  <span style="color:#f92672">------</span>    <span style="color:#f92672">--------------</span>  <span style="color:#f92672">-----</span>  
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">0</span>   Length    <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1</span>   Left      <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">2</span>   Right     <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">3</span>   Bottom    <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">4</span>   Top       <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">5</span>   Diagonal  <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    float64
+</span></span><span style="display:flex;"><span> <span style="color:#ae81ff">6</span>   Class     <span style="color:#ae81ff">200</span> non<span style="color:#f92672">-</span>null    object 
+</span></span><span style="display:flex;"><span>dtypes: float64(<span style="color:#ae81ff">6</span>), object(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>memory usage: <span style="color:#ae81ff">11.1</span><span style="color:#f92672">+</span> KB
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>Length      <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Left        <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Right       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Bottom      <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Top         <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Diagonal    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Class       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data<span style="color:#f92672">.</span>describe()<span style="color:#f92672">.</span>T
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>          count      mean       std    min    <span style="color:#ae81ff">25</span><span style="color:#f92672">%</span>     <span style="color:#ae81ff">50</span><span style="color:#f92672">%</span>      <span style="color:#ae81ff">75</span><span style="color:#f92672">%</span>    max
+</span></span><span style="display:flex;"><span>Length    <span style="color:#ae81ff">200.0</span>  <span style="color:#ae81ff">214.8960</span>  <span style="color:#ae81ff">0.376554</span>  <span style="color:#ae81ff">213.8</span>  <span style="color:#ae81ff">214.6</span>  <span style="color:#ae81ff">214.90</span>  <span style="color:#ae81ff">215.100</span>  <span style="color:#ae81ff">216.3</span>
+</span></span><span style="display:flex;"><span>Left      <span style="color:#ae81ff">200.0</span>  <span style="color:#ae81ff">130.1215</span>  <span style="color:#ae81ff">0.361026</span>  <span style="color:#ae81ff">129.0</span>  <span style="color:#ae81ff">129.9</span>  <span style="color:#ae81ff">130.20</span>  <span style="color:#ae81ff">130.400</span>  <span style="color:#ae81ff">131.0</span>
+</span></span><span style="display:flex;"><span>Right     <span style="color:#ae81ff">200.0</span>  <span style="color:#ae81ff">129.9565</span>  <span style="color:#ae81ff">0.404072</span>  <span style="color:#ae81ff">129.0</span>  <span style="color:#ae81ff">129.7</span>  <span style="color:#ae81ff">130.00</span>  <span style="color:#ae81ff">130.225</span>  <span style="color:#ae81ff">131.1</span>
+</span></span><span style="display:flex;"><span>Bottom    <span style="color:#ae81ff">200.0</span>    <span style="color:#ae81ff">9.4175</span>  <span style="color:#ae81ff">1.444603</span>    <span style="color:#ae81ff">7.2</span>    <span style="color:#ae81ff">8.2</span>    <span style="color:#ae81ff">9.10</span>   <span style="color:#ae81ff">10.600</span>   <span style="color:#ae81ff">12.7</span>
+</span></span><span style="display:flex;"><span>Top       <span style="color:#ae81ff">200.0</span>   <span style="color:#ae81ff">10.6505</span>  <span style="color:#ae81ff">0.802947</span>    <span style="color:#ae81ff">7.7</span>   <span style="color:#ae81ff">10.1</span>   <span style="color:#ae81ff">10.60</span>   <span style="color:#ae81ff">11.200</span>   <span style="color:#ae81ff">12.3</span>
+</span></span><span style="display:flex;"><span>Diagonal  <span style="color:#ae81ff">200.0</span>  <span style="color:#ae81ff">140.4835</span>  <span style="color:#ae81ff">1.152266</span>  <span style="color:#ae81ff">137.8</span>  <span style="color:#ae81ff">139.5</span>  <span style="color:#ae81ff">140.45</span>  <span style="color:#ae81ff">141.500</span>  <span style="color:#ae81ff">142.4</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler, LabelEncoder
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix, accuracy_score, classification_report
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;Class&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()
+</span></span><span style="display:flex;"><span>X_train_scaled <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>fit_transform(X_train)
+</span></span><span style="display:flex;"><span>X_test_scaled <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>transform(X_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lr <span style="color:#f92672">=</span> LogisticRegression(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>, penalty<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> lr<span style="color:#f92672">.</span>fit(X_train_scaled, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test_scaled)
+</span></span><span style="display:flex;"><span>y_proba <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict_proba(X_test_scaled)
+</span></span><span style="display:flex;"><span>print(confusion_matrix(y_test, y_pred))
+</span></span><span style="display:flex;"><span>print(accuracy_score(y_test, y_pred))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#ae81ff">19</span>  <span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span> [ <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">20</span>]]
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0.975</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Model Accuracy:&#34;</span>, model<span style="color:#f92672">.</span>score(X_test_scaled, y_test))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(classification_report(y_test, y_pred))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Model Accuracy: <span style="color:#ae81ff">0.975</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>              precision    recall  f1<span style="color:#f92672">-</span>score   support
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> Counterfeit       <span style="color:#ae81ff">0.95</span>      <span style="color:#ae81ff">1.00</span>      <span style="color:#ae81ff">0.97</span>        <span style="color:#ae81ff">19</span>
+</span></span><span style="display:flex;"><span>     Genuine       <span style="color:#ae81ff">1.00</span>      <span style="color:#ae81ff">0.95</span>      <span style="color:#ae81ff">0.98</span>        <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    accuracy                           <span style="color:#ae81ff">0.97</span>        <span style="color:#ae81ff">40</span>
+</span></span><span style="display:flex;"><span>   macro avg       <span style="color:#ae81ff">0.97</span>      <span style="color:#ae81ff">0.98</span>      <span style="color:#ae81ff">0.97</span>        <span style="color:#ae81ff">40</span>
+</span></span><span style="display:flex;"><span>weighted avg       <span style="color:#ae81ff">0.98</span>      <span style="color:#ae81ff">0.97</span>      <span style="color:#ae81ff">0.98</span>        <span style="color:#ae81ff">40</span>
+</span></span></code></pre></div><hr>
+<h3 id="-modleing-with-statsmodelslogit">🔨 Modleing with statsmodels.Logit<a hidden class="anchor" aria-hidden="true" href="#-modleing-with-statsmodelslogit">#</a></h3>
+<p>note:<br>
+因為使用該模型存在beta不收斂的問題<br>
+所以在fit的部分選擇使用fit_regularized<br>
+其中method設定加入l1懲罰, alpha(l1的權重)設0.01<br>
+summay才會正常跑出數值</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>constant <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>Logit(y, constant)   
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit_regularized(method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;l1&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span><span style="color:#f92672">--------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>Optimization terminated successfully    (Exit mode <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            Current function value: <span style="color:#ae81ff">0.002174041962487562</span>
+</span></span><span style="display:flex;"><span>            Iterations: <span style="color:#ae81ff">131</span>
+</span></span><span style="display:flex;"><span>            Function evaluations: <span style="color:#ae81ff">136</span>
+</span></span><span style="display:flex;"><span>            Gradient evaluations: <span style="color:#ae81ff">131</span>
+</span></span><span style="display:flex;"><span>                           Logit Regression Results                           
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==============================================================================</span>
+</span></span><span style="display:flex;"><span>Dep<span style="color:#f92672">.</span> Variable:                      y   No<span style="color:#f92672">.</span> Observations:                  <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>Model:                          Logit   Df Residuals:                      <span style="color:#ae81ff">193</span>
+</span></span><span style="display:flex;"><span>Method:                           MLE   Df Model:                            <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>Date:                Thu, <span style="color:#ae81ff">20</span> Mar <span style="color:#ae81ff">2025</span>   Pseudo R<span style="color:#f92672">-</span>squ<span style="color:#f92672">.</span>:                  <span style="color:#ae81ff">0.9994</span>
+</span></span><span style="display:flex;"><span>Time:                        <span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">39</span>:<span style="color:#ae81ff">59</span>   Log<span style="color:#f92672">-</span>Likelihood:              <span style="color:#f92672">-</span><span style="color:#ae81ff">0.083416</span>
+</span></span><span style="display:flex;"><span>converged:                       <span style="color:#66d9ef">True</span>   LL<span style="color:#f92672">-</span>Null:                       <span style="color:#f92672">-</span><span style="color:#ae81ff">138.63</span>
+</span></span><span style="display:flex;"><span>Covariance Type:            nonrobust   LLR p<span style="color:#f92672">-</span>value:                 <span style="color:#ae81ff">6.587e-57</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==============================================================================</span>
+</span></span><span style="display:flex;"><span>                 coef    std err          z      P<span style="color:#f92672">&gt;|</span>z<span style="color:#f92672">|</span>      [<span style="color:#ae81ff">0.025</span>      <span style="color:#ae81ff">0.975</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">------------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>const       <span style="color:#ae81ff">7.851e-18</span>   <span style="color:#ae81ff">1.11e+04</span>   <span style="color:#ae81ff">7.07e-22</span>      <span style="color:#ae81ff">1.000</span>   <span style="color:#f92672">-</span><span style="color:#ae81ff">2.18e+04</span>    <span style="color:#ae81ff">2.18e+04</span>
+</span></span><span style="display:flex;"><span>Length        <span style="color:#f92672">-</span><span style="color:#ae81ff">4.8724</span>     <span style="color:#ae81ff">46.740</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">0.104</span>      <span style="color:#ae81ff">0.917</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">96.481</span>      <span style="color:#ae81ff">86.737</span>
+</span></span><span style="display:flex;"><span>Left        <span style="color:#ae81ff">6.129e-16</span>     <span style="color:#ae81ff">83.355</span>   <span style="color:#ae81ff">7.35e-18</span>      <span style="color:#ae81ff">1.000</span>    <span style="color:#f92672">-</span><span style="color:#ae81ff">163.372</span>     <span style="color:#ae81ff">163.372</span>
+</span></span><span style="display:flex;"><span>Right        <span style="color:#f92672">-</span><span style="color:#ae81ff">6.8e-16</span>     <span style="color:#ae81ff">80.137</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">8.49e-18</span>      <span style="color:#ae81ff">1.000</span>    <span style="color:#f92672">-</span><span style="color:#ae81ff">157.066</span>     <span style="color:#ae81ff">157.066</span>
+</span></span><span style="display:flex;"><span>Bottom       <span style="color:#f92672">-</span><span style="color:#ae81ff">11.9135</span>     <span style="color:#ae81ff">14.936</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">0.798</span>      <span style="color:#ae81ff">0.425</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">41.187</span>      <span style="color:#ae81ff">17.360</span>
+</span></span><span style="display:flex;"><span>Top           <span style="color:#f92672">-</span><span style="color:#ae81ff">9.3913</span>     <span style="color:#ae81ff">15.731</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">0.597</span>      <span style="color:#ae81ff">0.551</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">40.224</span>      <span style="color:#ae81ff">21.441</span>
+</span></span><span style="display:flex;"><span>Diagonal       <span style="color:#ae81ff">8.9620</span>     <span style="color:#ae81ff">10.880</span>      <span style="color:#ae81ff">0.824</span>      <span style="color:#ae81ff">0.410</span>     <span style="color:#f92672">-</span><span style="color:#ae81ff">12.362</span>      <span style="color:#ae81ff">30.286</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==============================================================================</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Possibly complete quasi<span style="color:#f92672">-</span>separation: A fraction <span style="color:#ae81ff">0.95</span> of observations can be
+</span></span><span style="display:flex;"><span>perfectly predicted<span style="color:#f92672">.</span> This might indicate that there <span style="color:#f92672">is</span> complete
+</span></span><span style="display:flex;"><span>quasi<span style="color:#f92672">-</span>separation<span style="color:#f92672">.</span> In this <span style="color:#66d9ef">case</span> some parameters will <span style="color:#f92672">not</span> be identified<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>c:\Users\USER\anaconda3\Lib\site<span style="color:#f92672">-</span>packages\statsmodels\base\l1_solvers_common<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">71</span>: ConvergenceWarning: QC check did <span style="color:#f92672">not</span> <span style="color:#66d9ef">pass</span> <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">1</span> out of <span style="color:#ae81ff">7</span> parameters
+</span></span><span style="display:flex;"><span>Try increasing solver accuracy <span style="color:#f92672">or</span> number of iterations, decreasing alpha, <span style="color:#f92672">or</span> switch solvers
+</span></span><span style="display:flex;"><span>  warnings<span style="color:#f92672">.</span>warn(message, ConvergenceWarning)
+</span></span><span style="display:flex;"><span>c:\Users\USER\anaconda3\Lib\site<span style="color:#f92672">-</span>packages\statsmodels\base\l1_solvers_common<span style="color:#f92672">.</span>py:<span style="color:#ae81ff">144</span>: ConvergenceWarning: Could <span style="color:#f92672">not</span> trim params automatically due to failed QC check<span style="color:#f92672">.</span> Trimming using trim_mode <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;size&#39;</span> will still work<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>  warnings<span style="color:#f92672">.</span>warn(msg, ConvergenceWarning)
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/learninig-record/">Learninig Record</a></li>
+      <li><a href="http://localhost:1313/tags/regression/">Regression</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/20250318_%E7%B5%B1%E8%A8%88%E8%A8%88%E7%AE%970320/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Statistical Computing HW_0320</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/20250305_randomforest/">
+    <span class="title">Next »</span>
+    <br>
+    <span>RandomForest Learning</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on x"
+            href="https://x.com/intent/tweet/?text=Logistic%20Regression%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f&amp;hashtags=LearninigRecord%2cRegression">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f&amp;title=Logistic%20Regression%20Learning&amp;summary=Logistic%20Regression%20Learning&amp;source=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f&title=Logistic%20Regression%20Learning">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on whatsapp"
+            href="https://api.whatsapp.com/send?text=Logistic%20Regression%20Learning%20-%20http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on telegram"
+            href="https://telegram.me/share/url?text=Logistic%20Regression%20Learning&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Logistic Regression Learning on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Logistic%20Regression%20Learning&u=http%3a%2f%2flocalhost%3a1313%2fposts%2f20250311_logisticregression%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Yang&#39;s World</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

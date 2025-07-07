@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/text-mining/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Text Mining with R: Chapter4</title>
-      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <link>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
       <pubDate>Sun, 26 Jan 2025 13:45:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;tokenizing-by-n-gram-n-gram-分詞&#34;&gt;Tokenizing by n-gram (n-gram 分詞)&lt;/h3&gt;
 &lt;ol&gt;
@@ -26,9 +26,9 @@
     </item>
     <item>
       <title>Text Mining with R: Chapter3</title>
-      <link>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
+      <link>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</link>
       <pubDate>Fri, 24 Jan 2025 15:02:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
+      <guid>http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E4%B8%89%E7%AB%A0/</guid>
       <description>&lt;p&gt;&lt;strong&gt;這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;analyzing-word-and-document-frequency-tf-idf&#34;&gt;Analyzing word and document frequency: tf-idf&lt;/h3&gt;
 &lt;ol&gt;

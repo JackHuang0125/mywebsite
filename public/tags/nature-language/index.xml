@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nature Language on Yang&#39;s World</title>
+    <link>http://localhost:1313/tags/nature-language/</link>
+    <description>Recent content in Nature Language on Yang&#39;s World</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 07 Jul 2025 11:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nature-language/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20250707 LDA的理解與AI的修正</title>
+      <link>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</link>
+      <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</guid>
+      <description>&lt;h3 id=&#34;generalized-association-plotsgap&#34;&gt;Generalized Association Plots(GAP)&lt;/h3&gt;</description>
+    </item>
+  </channel>
+</rss>
