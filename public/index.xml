@@ -9,6 +9,51 @@
     <lastBuildDate>Mon, 07 Jul 2025 11:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>20250707 LDA的理解與AI的修正</title>
+      <link>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</link>
+      <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</guid>
+      <description>&lt;h3 id=&#34;前情提要&#34;&gt;前情提要&lt;/h3&gt;
+&lt;p&gt;這裡的 LDA 指的是 &lt;strong&gt;Latent Dirichlet Allocation 隱含狄利克雷分佈&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;不是 Linear Discriminant Analysis&lt;/p&gt;
+&lt;h3 id=&#34;關於-lda&#34;&gt;關於 LDA&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一種主題模型, 由 &lt;em&gt;Blei, D. M.&lt;/em&gt; 等人在2003年提出, 是一種無監督式的學習（unsupervised learning）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;主要用途是將文本的主題按機率向量的方式提出, 且每個主題都有其相呼的文字可以對照&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其結構主要是多層的貝氏網絡組成, 起初是EM演算法來估計參數, 而後改成用Gibbs Sampling來估計參數&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;詳細內容請參考&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E9%9A%90%E5%90%AB%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%88%86%E5%B8%83&#34;&gt;維基百科&lt;/a&gt;（點擊後開啟網站）或&lt;a href=&#34;https://robotics.stanford.edu/~ang/papers/jair03-lda.pdf&#34;&gt;論文&lt;/a&gt;（點擊後開啟 pdf 檔案）&lt;/p&gt;
+&lt;h3 id=&#34;本篇主旨&#34;&gt;本篇主旨&lt;/h3&gt;
+&lt;p&gt;在閱讀相關文獻之後, 因為其核心觀念來自於多層的貝氏網絡, 如圖
+&lt;img alt=&#34;targets&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/LDA.png&#34;&gt;取自文獻&lt;/p&gt;
+&lt;p&gt;所以我個人提出了對於 LDA 架構的看法, 並丟進 Chat GPT-4o 模型來修正我的觀念&lt;/p&gt;
+&lt;p&gt;以下是我和 GPT 的對話&lt;/p&gt;
+&lt;p&gt;我：&lt;/p&gt;
+&lt;p&gt;給定一個來自迪利克雷分布的參數alpha, 第d個文件theta有topic1,topic2,topic3&amp;hellip;的機率向量,
+各個topic又有共同的詞彙w1,w2,w3..的機率分布,
+我們要知道的是在第d個文件theta之下的topic機率與第topic下的w1的機率乘機總和(條件機率的概念),
+來得知這個d文件擁有這些w1,w2,w3&amp;hellip;的機率,
+最後再乘上給定eta參數的beta分布下的k主題, 來決定每個w來自哪個主題,
+因此得到該文件屬於哪個主題&lt;/p&gt;
+&lt;p&gt;GPT：&lt;/p&gt;
+&lt;p&gt;✅ 你說得對的部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;✔️ $α$ 是來自 Dirichlet 分布的超參數，控制每個文件的主題分布 $θ$。&lt;/li&gt;
+&lt;li&gt;✔️ 每個主題 $k$ 有一個詞語分布 $φ_k$，控制該主題產生哪些詞（$w1, w2, &amp;hellip;$）的機率。&lt;/li&gt;
+&lt;li&gt;✔️ 文件生成詞的機率可由：「主題機率 × 詞在該主題下的機率」來決定。&lt;/li&gt;
+&lt;li&gt;✔️ 對每個詞 $w$，模型要根據 $θ$ 和 $φ_k$ 來計算它來自哪個主題的機率。&lt;/li&gt;
+&lt;li&gt;✔️ $η$ 是 Dirichlet 的超參數，控制每個 $φ_k$（主題的詞分布）的稀疏性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;🔧 需要調整與補強的地方：&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>20250710 Meeting</title>
       <link>http://localhost:1313/posts/20250710_meeting/</link>
       <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
@@ -31,7 +76,18 @@
 &lt;li&gt;收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;應用在文本分析&#34;&gt;應用在文本分析：&lt;/h4&gt;
-&lt;p&gt;若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於&lt;strong&gt;Topic 或 Document 之間結構的視覺化與理解&lt;/strong&gt;&lt;/p&gt;</description>
+&lt;p&gt;若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於&lt;strong&gt;Topic 或 Document 之間結構的視覺化與理解&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;流程&#34;&gt;流程&lt;/h3&gt;
+&lt;p&gt;step 1. 原始文章內容（語料庫）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    ↓
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    ↓
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    ↓
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）&lt;/p&gt;</description>
     </item>
     <item>
       <title>Expectation maximization algorithm</title>
@@ -513,13 +569,6 @@ $$&lt;/p&gt;</description>
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

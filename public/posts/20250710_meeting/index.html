@@ -25,7 +25,18 @@ $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$
 收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用
 
 應用在文本分析：
-若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解">
+若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解
+流程
+step 1. 原始文章內容（語料庫）
+    ↓
+
+step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）
+    ↓
+
+step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組
+    ↓
+
+step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/20250710_meeting/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
@@ -195,10 +206,11 @@ $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$
                     <a href="#generalized-association-plotsgap" aria-label="Generalized Association Plots(GAP)">Generalized Association Plots(GAP)</a><ul>
                         
                 <li>
-                    <a href="#%e6%87%89%e7%94%a8%e5%9c%a8%e6%96%87%e6%9c%ac%e5%88%86%e6%9e%90" aria-label="應用在文本分析：">應用在文本分析：</a>
+                    <a href="#%e6%87%89%e7%94%a8%e5%9c%a8%e6%96%87%e6%9c%ac%e5%88%86%e6%9e%90" aria-label="應用在文本分析：">應用在文本分析：</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#%e6%b5%81%e7%a8%8b" aria-label="流程">流程</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -223,6 +235,26 @@ $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$
 </ul>
 <h4 id="應用在文本分析">應用在文本分析：<a hidden class="anchor" aria-hidden="true" href="#應用在文本分析">#</a></h4>
 <p>若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於<strong>Topic 或 Document 之間結構的視覺化與理解</strong></p>
+<h3 id="流程">流程<a hidden class="anchor" aria-hidden="true" href="#流程">#</a></h3>
+<p>step 1. 原始文章內容（語料庫）</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 5. 對 col_prox 做分群 → 得到 token_to_topic（P → K）</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 6. 建立 LDA 的先驗 η 矩陣（K × P）</p>
+<pre><code>    ↓
+</code></pre>
+<p>step 7. 餵給 gensim.LDA → 主題分布會貼近 GAP 群</p>
 
 
   </div>
@@ -232,6 +264,11 @@ $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$
       <li><a href="http://localhost:1313/tags/meeting/">Meeting</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>20250707 LDA的理解與AI的修正</span>
+  </a>
   <a class="next" href="http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/">
     <span class="title">Next »</span>
     <br>

@@ -160,18 +160,31 @@
 </header>
 
 <article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/EM.jpg" alt="20250112">
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/ChatGPT.png" alt="20250707">
 </figure>
   <header class="entry-header">
-    <h2 class="entry-hint-parent">20250710 Meeting
+    <h2 class="entry-hint-parent">20250707 LDA的理解與AI的修正
     </h2>
   </header>
   <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-</p>
+    <p>前情提要 這裡的 LDA 指的是 Latent Dirichlet Allocation 隱含狄利克雷分佈
+不是 Linear Discriminant Analysis
+關於 LDA 一種主題模型, 由 Blei, D. M. 等人在2003年提出, 是一種無監督式的學習（unsupervised learning）
+主要用途是將文本的主題按機率向量的方式提出, 且每個主題都有其相呼的文字可以對照
+其結構主要是多層的貝氏網絡組成, 起初是EM演算法來估計參數, 而後改成用Gibbs Sampling來估計參數
+詳細內容請參考維基百科（點擊後開啟網站）或論文（點擊後開啟 pdf 檔案）
+本篇主旨 在閱讀相關文獻之後, 因為其核心觀念來自於多層的貝氏網絡, 如圖 取自文獻
+所以我個人提出了對於 LDA 架構的看法, 並丟進 Chat GPT-4o 模型來修正我的觀念
+以下是我和 GPT 的對話
+我：
+給定一個來自迪利克雷分布的參數alpha, 第d個文件theta有topic1,topic2,topic3…的機率向量, 各個topic又有共同的詞彙w1,w2,w3..的機率分布, 我們要知道的是在第d個文件theta之下的topic機率與第topic下的w1的機率乘機總和(條件機率的概念), 來得知這個d文件擁有這些w1,w2,w3…的機率, 最後再乘上給定eta參數的beta分布下的k主題, 來決定每個w來自哪個主題, 因此得到該文件屬於哪個主題
+GPT：
+✅ 你說得對的部分：
+✔️ $α$ 是來自 Dirichlet 分布的超參數，控制每個文件的主題分布 $θ$。 ✔️ 每個主題 $k$ 有一個詞語分布 $φ_k$，控制該主題產生哪些詞（$w1, w2, …$）的機率。 ✔️ 文件生成詞的機率可由：「主題機率 × 詞在該主題下的機率」來決定。 ✔️ 對每個詞 $w$，模型要根據 $θ$ 和 $φ_k$ 來計算它來自哪個主題的機率。 ✔️ $η$ 是 Dirichlet 的超參數，控制每個 $φ_k$（主題的詞分布）的稀疏性。 🔧 需要調整與補強的地方：
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to 20250710 Meeting" href="http://localhost:1313/posts/20250710_meeting/"></a>
+  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to 20250707 LDA的理解與AI的修正" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 

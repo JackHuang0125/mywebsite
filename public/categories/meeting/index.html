@@ -160,14 +160,19 @@
 </header>
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250707">
+</figure>
   <header class="entry-header">
     <h2 class="entry-hint-parent">20250710 Meeting
     </h2>
   </header>
   <div class="entry-content">
-    <p></p>
+    <p>Generalized Association Plots(GAP) 針對高維度的資料進行視覺化與排序的工具
+起始矩陣 D: 輸入任意一個 p by p 的 proximity matrix （如皮爾森相關係數矩陣） 遞迴相關係數矩陣： $R^{(1)}=\phi(D)$ $R^{(n&#43;1)}=\phi(R^{(n)})$ 收斂： $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$ 收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用 應用在文本分析： 若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解
+流程 step 1. 原始語料（每篇文章內容） ↓ step 2. 建立 document × token 矩陣（N × P） ↓ step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組 ↓ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox） ↓ step 5. 對 col_prox 做分群 → 得到 token_to_topic（P → K） ↓ step 6. 建立 LDA 的先驗 η 矩陣（K × P） ↓ step 7. 餵進 gensim.LDA → 主題分布會貼近 GAP 群
+...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;0 min</footer>
+  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to 20250710 Meeting" href="http://localhost:1313/posts/20250710_meeting/"></a>
 </article>
     </main>
