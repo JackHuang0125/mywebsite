@@ -160,7 +160,28 @@
 </header>
 
 <article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250707">
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250717">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">20250717 Meeting
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>GAP 補上辭意的訊息來強化語意的合理性
+1️⃣ 加入 Word Embedding（詞向量）相似性
+工具 用途 Word2Vec / GloVe / FastText 表示詞意分布的向量空間 Cosine Similarity 衡量兩詞語意相似性 做法： 1️⃣ GAP 排完後，對每個群的 token：
+計算該群內所有詞的 embedding 平均 檢查這些詞彼此 cosine similarity 是否夠高 2️⃣ 若有明顯「語意不合」的詞：
+你可以手動微調或重新分群 或將 GAP &#43; embedding 結果結合成 新的相似矩陣 ✅ 2️⃣ 建立 混合型相似矩陣（共現 × 詞意） 將 GAP 的 col_prox（共現 correlation）與 Word2Vec 相似性做結合：
+$$ \text{Final_Similarity} = \lambda \cdot \text{GAP_Col_Prox} &#43; (1 - \lambda) \cdot \text{Cosine_Similarity} $$
+$\lambda$：權重，可實驗（如 0.5, 0.7） GAP 捕捉共現結構，詞向量補足語意距離 用這個混合矩陣再進行 GAP 排序或分群，更穩健。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-16 23:00:00 +0800 CST'>July 16, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to 20250717 Meeting" href="http://localhost:1313/posts/20250717_meeting/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250710">
 </figure>
   <header class="entry-header">
     <h2 class="entry-hint-parent">20250710 Meeting
@@ -169,10 +190,9 @@
   <div class="entry-content">
     <p>Generalized Association Plots(GAP) 針對高維度的資料進行視覺化與排序的工具
 起始矩陣 D: 輸入任意一個 p by p 的 proximity matrix （如皮爾森相關係數矩陣） 遞迴相關係數矩陣： $R^{(1)}=\phi(D)$ $R^{(n&#43;1)}=\phi(R^{(n)})$ 收斂： $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$ 收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用 應用在文本分析： 若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解
-流程 step 1. 原始語料（每篇文章內容） ↓ step 2. 建立 document × token 矩陣（N × P） ↓ step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組 ↓ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox） ↓ step 5. 對 col_prox 做分群 → 得到 token_to_topic（P → K） ↓ step 6. 建立 LDA 的先驗 η 矩陣（K × P） ↓ step 7. 餵進 gensim.LDA → 主題分布會貼近 GAP 群
-...</p>
+Procedure 步驟 內容 目的 1 用 BBC News 5 類別資料（語料庫） 作為範例語料 2 每類取 前 15 個代表 token 建立小型 token 子集（75 tokens） 3 用 GAP 排序視覺化 75×75 矩陣 找到語意群聚結構 4 人工確認分 5 群 將 token-to-topic 定義好 5 用 token 群建 LDA 的 η 先驗 導引 LDA 學出預期主題 Question 問題 你的回答 GAP 結果丟進 LDA 了嗎？ 是，透過 η 矩陣間接導入，不是直接丟 category η 怎麼設定？ GAP 群內 η 大（如 0.3），其他小（如 0.01） GAP correlation 值有用來當機率嗎？ 沒有，只有分群結果用來指定 topic GAP 是否直接影響文件分類？ 沒有，只影響 LDA 主題-詞先驗 是否做 baseline LDA 比較？ 尚未，之後會補做對比 baseline Advice GAP → 幫助 η 結構設計 baseline LDA vs GAP-informed LDA 結果對比 LDA 原理本來無需分群，這裡是你的設計特色 可以不用特別追求完美的理論公式，重點是架構合理、結果可解釋性夠 </p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <footer class="entry-footer"><span title='2025-07-10 16:00:00 +0800 CST'>July 10, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to 20250710 Meeting" href="http://localhost:1313/posts/20250710_meeting/"></a>
 </article>
     </main>

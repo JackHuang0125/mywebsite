@@ -54,42 +54,6 @@
 &lt;p&gt;🔧 需要調整與補強的地方：&lt;/p&gt;</description>
     </item>
     <item>
-      <title>20250710 Meeting</title>
-      <link>http://localhost:1313/posts/20250710_meeting/</link>
-      <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/20250710_meeting/</guid>
-      <description>&lt;h3 id=&#34;generalized-association-plotsgap&#34;&gt;Generalized Association Plots(GAP)&lt;/h3&gt;
-&lt;p&gt;針對高維度的資料進行視覺化與排序的工具&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;起始矩陣 D: 輸入任意一個 p by p 的 proximity matrix （如皮爾森相關係數矩陣）&lt;/li&gt;
-&lt;li&gt;遞迴相關係數矩陣：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;$R^{(1)}=\phi(D)$&lt;/li&gt;
-&lt;li&gt;$R^{(n+1)}=\phi(R^{(n)})$&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;收斂：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;$R(n)$ 會收斂至 +1 和 -1 的矩陣 $R^{(\infty)}$&lt;/li&gt;
-&lt;li&gt;收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;應用在文本分析&#34;&gt;應用在文本分析：&lt;/h4&gt;
-&lt;p&gt;若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於&lt;strong&gt;Topic 或 Document 之間結構的視覺化與理解&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;流程&#34;&gt;流程&lt;/h3&gt;
-&lt;p&gt;step 1. 原始文章內容（語料庫）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    ↓
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    ↓
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    ↓
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Expectation maximization algorithm</title>
       <link>http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/</link>
       <pubDate>Thu, 03 Jul 2025 11:00:00 +0800</pubDate>

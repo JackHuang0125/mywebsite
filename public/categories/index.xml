@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 07 Jul 2025 11:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jul 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meeting</title>
+      <link>http://localhost:1313/categories/meeting/</link>
+      <pubDate>Wed, 16 Jul 2025 23:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/meeting/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Learning</title>
       <link>http://localhost:1313/categories/learning/</link>

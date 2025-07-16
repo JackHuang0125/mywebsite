@@ -160,6 +160,43 @@
 </header>
 
 <article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250717">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">20250717 Meeting
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>GAP 補上辭意的訊息來強化語意的合理性
+1️⃣ 加入 Word Embedding（詞向量）相似性
+工具 用途 Word2Vec / GloVe / FastText 表示詞意分布的向量空間 Cosine Similarity 衡量兩詞語意相似性 做法： 1️⃣ GAP 排完後，對每個群的 token：
+計算該群內所有詞的 embedding 平均 檢查這些詞彼此 cosine similarity 是否夠高 2️⃣ 若有明顯「語意不合」的詞：
+你可以手動微調或重新分群 或將 GAP &#43; embedding 結果結合成 新的相似矩陣 ✅ 2️⃣ 建立 混合型相似矩陣（共現 × 詞意） 將 GAP 的 col_prox（共現 correlation）與 Word2Vec 相似性做結合：
+$$ \text{Final_Similarity} = \lambda \cdot \text{GAP_Col_Prox} &#43; (1 - \lambda) \cdot \text{Cosine_Similarity} $$
+$\lambda$：權重，可實驗（如 0.5, 0.7） GAP 捕捉共現結構，詞向量補足語意距離 用這個混合矩陣再進行 GAP 排序或分群，更穩健。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-16 23:00:00 +0800 CST'>July 16, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to 20250717 Meeting" href="http://localhost:1313/posts/20250717_meeting/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/Meeting.png" alt="20250710">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">20250710 Meeting
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Generalized Association Plots(GAP) 針對高維度的資料進行視覺化與排序的工具
+起始矩陣 D: 輸入任意一個 p by p 的 proximity matrix （如皮爾森相關係數矩陣） 遞迴相關係數矩陣： $R^{(1)}=\phi(D)$ $R^{(n&#43;1)}=\phi(R^{(n)})$ 收斂： $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$ 收斂的過程當中會觀察到rank的降維和橢圓結構的變化（由橢圓壓縮至一直線）, 對於排序（seriation）和分群（clustering）很有用 應用在文本分析： 若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解
+Procedure 步驟 內容 目的 1 用 BBC News 5 類別資料（語料庫） 作為範例語料 2 每類取 前 15 個代表 token 建立小型 token 子集（75 tokens） 3 用 GAP 排序視覺化 75×75 矩陣 找到語意群聚結構 4 人工確認分 5 群 將 token-to-topic 定義好 5 用 token 群建 LDA 的 η 先驗 導引 LDA 學出預期主題 Question 問題 你的回答 GAP 結果丟進 LDA 了嗎？ 是，透過 η 矩陣間接導入，不是直接丟 category η 怎麼設定？ GAP 群內 η 大（如 0.3），其他小（如 0.01） GAP correlation 值有用來當機率嗎？ 沒有，只有分群結果用來指定 topic GAP 是否直接影響文件分類？ 沒有，只影響 LDA 主題-詞先驗 是否做 baseline LDA 比較？ 尚未，之後會補做對比 baseline Advice GAP → 幫助 η 結構設計 baseline LDA vs GAP-informed LDA 結果對比 LDA 原理本來無需分群，這裡是你的設計特色 可以不用特別追求完美的理論公式，重點是架構合理、結果可解釋性夠 </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-07-10 16:00:00 +0800 CST'>July 10, 2025</span>&nbsp;·&nbsp;1 min</footer>
+  <a class="entry-link" aria-label="post link to 20250710 Meeting" href="http://localhost:1313/posts/20250710_meeting/"></a>
+</article>
+
+<article class="post-entry"> 
 <figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/ChatGPT.png" alt="20250707">
 </figure>
   <header class="entry-header">
@@ -325,42 +362,6 @@ A logistic function or a logistic curve is a commond S-shaped curve (sigmoid cur
   </div>
   <footer class="entry-footer"><span title='2025-03-05 11:30:00 +0800 CST'>March 5, 2025</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to RandomForest Learning" href="http://localhost:1313/posts/20250305_randomforest/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/PCA.png" alt="20250204">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Principal Component Analysis(PCA) Learning
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD 這篇文章利用 Chat Gpt 翻譯成英文，邊唸邊打（純手打，無複製貼上），順便練英文 XD We can assume that the data comes from a sample with a normal distribution, in this context, the eigenvalues asyptotically follow a normal distribution. Therefore, we can estimate the 95% confidence interval for each eigenvalue using the following formula: $$ \left[ \lambda_\alpha \left( 1 - 1.96 \sqrt{\frac{2}{n-1}} \right); \lambda_\alpha \left(1 &#43; 1.96 \sqrt{\frac{2}{n-1}} \right) \right] $$ where:
-$\lambda_\alpha$ represents the $\alpha$-th eigenvalue $n$ denotes the sample size. By caculating the 95% confidence intervals of the eigenvalue, we can assess their stability and determine the appropriate number of pricipal component axes to retain. This approach aids in deciding how many principal components to keep in PCA to reduce data dimensionality while preserving as much of the original information as possible.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-04 13:20:00 +0800 CST'>February 4, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to Principal Component Analysis(PCA) Learning" href="http://localhost:1313/posts/20250204_principalcomponentanalysis/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="http://localhost:1313/wordcloud.png" alt="20250124">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Text Mining with R: Chapter4
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
-Tokenizing by n-gram (n-gram 分詞) 將文檔的內容依照 n 個單詞作分類，例如：
-[1] “The Bank is a place where you put your money”
-[2] The Bee is an insect that gathers honey&#34;
-我們可以利用函式 tokenize_ngrams() 依照 n = 2 分類為
-[1] “the bank”、“bank is”、“is a”、“a place”、“place where”、“where you”、“you put”、“put your”、“your money”
-[2] “the bee”、“bee is”、“is an”、“an insect”、“insect that”、“that gathers”、“gathers honey” </p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-26 13:45:00 +0800 CST'>January 26, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to Text Mining with R: Chapter4" href="http://localhost:1313/posts/20250124_textmining%E7%AC%AC%E5%9B%9B%E7%AB%A0/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

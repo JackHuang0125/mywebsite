@@ -6,12 +6,60 @@
     <description>Recent content in Meeting on Yang&#39;s World</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 07 Jul 2025 11:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jul 2025 23:00:00 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/meeting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20250717 Meeting</title>
+      <link>http://localhost:1313/posts/20250717_meeting/</link>
+      <pubDate>Wed, 16 Jul 2025 23:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/20250717_meeting/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;GAP 補上辭意的訊息來強化語意的合理性&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1️⃣ 加入 &lt;strong&gt;Word Embedding（詞向量）相似性&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;工具&lt;/th&gt;
+          &lt;th&gt;用途&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Word2Vec / GloVe / FastText&lt;/td&gt;
+          &lt;td&gt;表示詞意分布的向量空間&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Cosine Similarity&lt;/td&gt;
+          &lt;td&gt;衡量兩詞語意相似性&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;做法&#34;&gt;做法：&lt;/h3&gt;
+&lt;p&gt;1️⃣ GAP 排完後，對每個群的 token：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;計算該群內所有詞的 &lt;strong&gt;embedding 平均&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;檢查這些詞彼此 cosine similarity 是否夠高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2️⃣ 若有明顯「語意不合」的詞：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;你可以手動微調或重新分群&lt;/li&gt;
+&lt;li&gt;或將 GAP + embedding 結果結合成 &lt;strong&gt;新的相似矩陣&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-2-建立-混合型相似矩陣共現--詞意&#34;&gt;✅ 2️⃣ 建立 &lt;strong&gt;混合型相似矩陣&lt;/strong&gt;（共現 × 詞意）&lt;/h2&gt;
+&lt;p&gt;將 GAP 的 col_prox（共現 correlation）與 Word2Vec 相似性做結合：&lt;/p&gt;
+&lt;p&gt;$$
+\text{Final_Similarity} = \lambda \cdot \text{GAP_Col_Prox} + (1 - \lambda) \cdot \text{Cosine_Similarity}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\lambda$：權重，可實驗（如 0.5, 0.7）&lt;/li&gt;
+&lt;li&gt;GAP 捕捉共現結構，詞向量補足語意距離&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用這個混合矩陣再進行 GAP 排序或分群，更穩健。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>20250710 Meeting</title>
       <link>http://localhost:1313/posts/20250710_meeting/</link>
-      <pubDate>Mon, 07 Jul 2025 11:00:00 +0800</pubDate>
+      <pubDate>Thu, 10 Jul 2025 16:00:00 +0800</pubDate>
       <guid>http://localhost:1313/posts/20250710_meeting/</guid>
       <description>&lt;h3 id=&#34;generalized-association-plotsgap&#34;&gt;Generalized Association Plots(GAP)&lt;/h3&gt;
 &lt;p&gt;針對高維度的資料進行視覺化與排序的工具&lt;/p&gt;
@@ -32,20 +80,81 @@
 &lt;/ul&gt;
 &lt;h4 id=&#34;應用在文本分析&#34;&gt;應用在文本分析：&lt;/h4&gt;
 &lt;p&gt;若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於&lt;strong&gt;Topic 或 Document 之間結構的視覺化與理解&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;流程&#34;&gt;流程&lt;/h3&gt;
-&lt;p&gt;step 1. 原始語料（每篇文章內容）
-↓
-step 2. 建立 document × token 矩陣（N × P）
-↓
-step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組
-↓
-step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）
-↓
-step 5. 對 col_prox 做分群 → 得到 token_to_topic（P → K）
-↓
-step 6. 建立 LDA 的先驗 η 矩陣（K × P）
-↓
-step 7. 餵進 gensim.LDA → 主題分布會貼近 GAP 群&lt;/p&gt;</description>
+&lt;h3 id=&#34;procedure&#34;&gt;Procedure&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;步驟&lt;/th&gt;
+          &lt;th&gt;內容&lt;/th&gt;
+          &lt;th&gt;目的&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;用 &lt;strong&gt;BBC News 5 類別資料（語料庫）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;作為範例語料&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;每類取 &lt;strong&gt;前 15 個代表 token&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;建立小型 token 子集（75 tokens）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;3&lt;/td&gt;
+          &lt;td&gt;用 &lt;strong&gt;GAP 排序視覺化 75×75 矩陣&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;找到語意群聚結構&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;4&lt;/td&gt;
+          &lt;td&gt;&lt;strong&gt;人工確認分 5 群&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;將 token-to-topic 定義好&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;5&lt;/td&gt;
+          &lt;td&gt;用 token 群建 &lt;strong&gt;LDA 的 η 先驗&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;導引 LDA 學出預期主題&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;question&#34;&gt;Question&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;問題&lt;/th&gt;
+          &lt;th&gt;你的回答&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GAP 結果丟進 LDA 了嗎？&lt;/td&gt;
+          &lt;td&gt;是，透過 η 矩陣間接導入，不是直接丟 category&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;η 怎麼設定？&lt;/td&gt;
+          &lt;td&gt;GAP 群內 η 大（如 0.3），其他小（如 0.01）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GAP correlation 值有用來當機率嗎？&lt;/td&gt;
+          &lt;td&gt;沒有，只有分群結果用來指定 topic&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;GAP 是否直接影響文件分類？&lt;/td&gt;
+          &lt;td&gt;沒有，只影響 LDA 主題-詞先驗&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;是否做 baseline LDA 比較？&lt;/td&gt;
+          &lt;td&gt;尚未，之後會補做對比 baseline&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;advice&#34;&gt;Advice&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;GAP → 幫助 η 結構設計&lt;/li&gt;
+&lt;li&gt;baseline LDA vs GAP-informed LDA 結果對比&lt;/li&gt;
+&lt;li&gt;LDA 原理本來無需分群，這裡是你的設計特色&lt;/li&gt;
+&lt;li&gt;可以不用特別追求完美的理論公式，重點是架構合理、結果可解釋性夠&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

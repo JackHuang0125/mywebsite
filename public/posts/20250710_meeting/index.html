@@ -26,17 +26,81 @@ $R(n)$ 會收斂至 &#43;1 和 -1 的矩陣 $R^{(\infty)}$
 
 應用在文本分析：
 若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於Topic 或 Document 之間結構的視覺化與理解
-流程
-step 1. 原始文章內容（語料庫）
-    ↓
+Procedure
 
-step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）
-    ↓
+  
+      
+          步驟
+          內容
+          目的
+      
+  
+  
+      
+          1
+          用 BBC News 5 類別資料（語料庫）
+          作為範例語料
+      
+      
+          2
+          每類取 前 15 個代表 token
+          建立小型 token 子集（75 tokens）
+      
+      
+          3
+          用 GAP 排序視覺化 75×75 矩陣
+          找到語意群聚結構
+      
+      
+          4
+          人工確認分 5 群
+          將 token-to-topic 定義好
+      
+      
+          5
+          用 token 群建 LDA 的 η 先驗
+          導引 LDA 學出預期主題
+      
+  
 
-step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組
-    ↓
+Question
 
-step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
+  
+      
+          問題
+          你的回答
+      
+  
+  
+      
+          GAP 結果丟進 LDA 了嗎？
+          是，透過 η 矩陣間接導入，不是直接丟 category
+      
+      
+          η 怎麼設定？
+          GAP 群內 η 大（如 0.3），其他小（如 0.01）
+      
+      
+          GAP correlation 值有用來當機率嗎？
+          沒有，只有分群結果用來指定 topic
+      
+      
+          GAP 是否直接影響文件分類？
+          沒有，只影響 LDA 主題-詞先驗
+      
+      
+          是否做 baseline LDA 比較？
+          尚未，之後會補做對比 baseline
+      
+  
+
+Advice
+
+GAP → 幫助 η 結構設計
+baseline LDA vs GAP-informed LDA 結果對比
+LDA 原理本來無需分群，這裡是你的設計特色
+可以不用特別追求完美的理論公式，重點是架構合理、結果可解釋性夠
+">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/20250710_meeting/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
@@ -188,12 +252,12 @@ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
     <h1 class="post-title entry-hint-parent">
       20250710 Meeting
     </h1>
-    <div class="post-meta"><span title='2025-07-07 11:00:00 +0800 CST'>July 7, 2025</span>&nbsp;·&nbsp;1 min
+    <div class="post-meta"><span title='2025-07-10 16:00:00 +0800 CST'>July 10, 2025</span>&nbsp;·&nbsp;1 min
 
 </div>
   </header> 
 <figure class="entry-cover"><a href="http://localhost:1313/Meeting.png" target="_blank"
-            rel="noopener noreferrer"><img loading="eager" src="http://localhost:1313/Meeting.png" alt="20250707"></a>
+            rel="noopener noreferrer"><img loading="eager" src="http://localhost:1313/Meeting.png" alt="20250710"></a>
         <p>Meeting.png by ChatGPT</p>
 </figure><div class="toc">
     <details >
@@ -209,7 +273,11 @@ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
                     <a href="#%e6%87%89%e7%94%a8%e5%9c%a8%e6%96%87%e6%9c%ac%e5%88%86%e6%9e%90" aria-label="應用在文本分析：">應用在文本分析：</a></li></ul>
                 </li>
                 <li>
-                    <a href="#%e6%b5%81%e7%a8%8b" aria-label="流程">流程</a>
+                    <a href="#procedure" aria-label="Procedure">Procedure</a></li>
+                <li>
+                    <a href="#question" aria-label="Question">Question</a></li>
+                <li>
+                    <a href="#advice" aria-label="Advice">Advice</a>
                 </li>
             </ul>
         </div>
@@ -235,26 +303,81 @@ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
 </ul>
 <h4 id="應用在文本分析">應用在文本分析：<a hidden class="anchor" aria-hidden="true" href="#應用在文本分析">#</a></h4>
 <p>若對新聞文本進行主題建模分析，能透過建立文件 $\rightarrow$ Topic 或 Topic-Keyword 的近似矩陣，藉由 GAP 的排序與分群，有助於<strong>Topic 或 Document 之間結構的視覺化與理解</strong></p>
-<h3 id="流程">流程<a hidden class="anchor" aria-hidden="true" href="#流程">#</a></h3>
-<p>step 1. 原始文章內容（語料庫）</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 2. 建立 document × token 矩陣（N × P）（token自定義或其他方法）</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 3. 用 GAP 對此矩陣做排序 → 對 column（token）排序與群組</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 5. 對 col_prox 做分群 → 得到 token_to_topic（P → K）</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 6. 建立 LDA 的先驗 η 矩陣（K × P）</p>
-<pre><code>    ↓
-</code></pre>
-<p>step 7. 餵給 gensim.LDA → 主題分布會貼近 GAP 群</p>
+<h3 id="procedure">Procedure<a hidden class="anchor" aria-hidden="true" href="#procedure">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>步驟</th>
+          <th>內容</th>
+          <th>目的</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>用 <strong>BBC News 5 類別資料（語料庫）</strong></td>
+          <td>作為範例語料</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>每類取 <strong>前 15 個代表 token</strong></td>
+          <td>建立小型 token 子集（75 tokens）</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>用 <strong>GAP 排序視覺化 75×75 矩陣</strong></td>
+          <td>找到語意群聚結構</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td><strong>人工確認分 5 群</strong></td>
+          <td>將 token-to-topic 定義好</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>用 token 群建 <strong>LDA 的 η 先驗</strong></td>
+          <td>導引 LDA 學出預期主題</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="question">Question<a hidden class="anchor" aria-hidden="true" href="#question">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th>問題</th>
+          <th>你的回答</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GAP 結果丟進 LDA 了嗎？</td>
+          <td>是，透過 η 矩陣間接導入，不是直接丟 category</td>
+      </tr>
+      <tr>
+          <td>η 怎麼設定？</td>
+          <td>GAP 群內 η 大（如 0.3），其他小（如 0.01）</td>
+      </tr>
+      <tr>
+          <td>GAP correlation 值有用來當機率嗎？</td>
+          <td>沒有，只有分群結果用來指定 topic</td>
+      </tr>
+      <tr>
+          <td>GAP 是否直接影響文件分類？</td>
+          <td>沒有，只影響 LDA 主題-詞先驗</td>
+      </tr>
+      <tr>
+          <td>是否做 baseline LDA 比較？</td>
+          <td>尚未，之後會補做對比 baseline</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="advice">Advice<a hidden class="anchor" aria-hidden="true" href="#advice">#</a></h3>
+<ul>
+<li>GAP → 幫助 η 結構設計</li>
+<li>baseline LDA vs GAP-informed LDA 結果對比</li>
+<li>LDA 原理本來無需分群，這裡是你的設計特色</li>
+<li>可以不用特別追求完美的理論公式，重點是架構合理、結果可解釋性夠</li>
+</ul>
 
 
   </div>
@@ -264,15 +387,10 @@ step 4. GAP 排序後 → 得到 token × token 相似度結構（col_prox）">
       <li><a href="http://localhost:1313/tags/meeting/">Meeting</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>20250707 LDA的理解與AI的修正</span>
-  </a>
-  <a class="next" href="http://localhost:1313/posts/20250703_em%E6%BC%94%E7%AE%97%E6%B3%95/">
+  <a class="next" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/">
     <span class="title">Next »</span>
     <br>
-    <span>Expectation maximization algorithm</span>
+    <span>20250707 LDA的理解與AI的修正</span>
   </a>
 </nav>
 
