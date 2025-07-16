@@ -28,27 +28,27 @@
   
 
 做法：
-1️⃣ GAP 排完後，對每個群的 token：
+1️. GAP 排完後，對每個群的 token：
 
 計算該群內所有詞的 embedding 平均
 檢查這些詞彼此 cosine similarity 是否夠高
 
-2️⃣ 若有明顯「語意不合」的詞：
+2️. 若有明顯「語意不合」的詞：
 
 你可以手動微調或重新分群
 或將 GAP &#43; embedding 結果結合成 新的相似矩陣
 
-
-✅ 2️⃣ 建立 混合型相似矩陣（共現 × 詞意）
+2️⃣ 建立 混合型相似矩陣（共現 × 詞意）
 將 GAP 的 col_prox（共現 correlation）與 Word2Vec 相似性做結合：
 $$
-\text{Final_Similarity} = \lambda \cdot \text{GAP_Col_Prox} &#43; (1 - \lambda) \cdot \text{Cosine_Similarity}
+Final＿Similarity = \lambda \cdot GAP＿Col＿Prox &#43; (1 - \lambda) \cdot Cosine＿Similarity
 $$
 
-$\lambda$：權重，可實驗（如 0.5, 0.7）
+$\lambda$：權重
 GAP 捕捉共現結構，詞向量補足語意距離
 
-用這個混合矩陣再進行 GAP 排序或分群，更穩健。">
+用這個混合矩陣再進行 GAP 排序或分群，更穩健。
+3️⃣ 或者導入 詞典 / 知識圖譜 強化語意結構">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/posts/20250717_meeting/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.9de45e225101e4f99701d2b68fc6b8a1ef6027928be6391fa15bf7f56326c909.css" integrity="sha256-neReIlEB5PmXAdK2j8a4oe9gJ5KL5jkfoVv39WMmyQk=" rel="preload stylesheet" as="style">
@@ -213,16 +213,9 @@ GAP 捕捉共現結構，詞向量補足語意距離
             <span class="details">Table of Contents</span>
         </summary>
 
-        <div class="inner"><ul><ul>
+        <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%81%9a%e6%b3%95" aria-label="做法：">做法：</a></li></ul>
-                    
-                <li>
-                    <a href="#-2-%e5%bb%ba%e7%ab%8b-%e6%b7%b7%e5%90%88%e5%9e%8b%e7%9b%b8%e4%bc%bc%e7%9f%a9%e9%99%a3%e5%85%b1%e7%8f%be--%e8%a9%9e%e6%84%8f" aria-label="✅ 2️⃣ 建立 混合型相似矩陣（共現 × 詞意）">✅ 2️⃣ 建立 混合型相似矩陣（共現 × 詞意）</a></li>
-                <li>
-                    <a href="#-3-%e6%88%96%e8%80%85%e5%b0%8e%e5%85%a5-%e8%a9%9e%e5%85%b8--%e7%9f%a5%e8%ad%98%e5%9c%96%e8%ad%9c-%e5%bc%b7%e5%8c%96%e8%aa%9e%e6%84%8f%e7%b5%90%e6%a7%8b" aria-label="✅ 3️⃣ 或者導入 詞典 / 知識圖譜 強化語意結構">✅ 3️⃣ 或者導入 詞典 / 知識圖譜 強化語意結構</a></li>
-                <li>
-                    <a href="#-%e9%80%99%e6%a8%a3%e5%81%9a%e7%9a%84%e8%b2%a2%e7%8d%bb" aria-label="✅ 這樣做的貢獻：">✅ 這樣做的貢獻：</a>
+                    <a href="#%e5%81%9a%e6%b3%95" aria-label="做法：">做法：</a>
                 </li>
             </ul>
         </div>
@@ -250,29 +243,27 @@ GAP 捕捉共現結構，詞向量補足語意距離
   </tbody>
 </table>
 <h3 id="做法">做法：<a hidden class="anchor" aria-hidden="true" href="#做法">#</a></h3>
-<p>1️⃣ GAP 排完後，對每個群的 token：</p>
+<p>1️. GAP 排完後，對每個群的 token：</p>
 <ul>
 <li>計算該群內所有詞的 <strong>embedding 平均</strong></li>
 <li>檢查這些詞彼此 cosine similarity 是否夠高</li>
 </ul>
-<p>2️⃣ 若有明顯「語意不合」的詞：</p>
+<p>2️. 若有明顯「語意不合」的詞：</p>
 <ul>
 <li>你可以手動微調或重新分群</li>
 <li>或將 GAP + embedding 結果結合成 <strong>新的相似矩陣</strong></li>
 </ul>
-<hr>
-<h2 id="-2-建立-混合型相似矩陣共現--詞意">✅ 2️⃣ 建立 <strong>混合型相似矩陣</strong>（共現 × 詞意）<a hidden class="anchor" aria-hidden="true" href="#-2-建立-混合型相似矩陣共現--詞意">#</a></h2>
+<p>2️⃣ 建立 <strong>混合型相似矩陣</strong>（共現 × 詞意）</p>
 <p>將 GAP 的 col_prox（共現 correlation）與 Word2Vec 相似性做結合：</p>
 <p>$$
-\text{Final_Similarity} = \lambda \cdot \text{GAP_Col_Prox} + (1 - \lambda) \cdot \text{Cosine_Similarity}
+Final＿Similarity = \lambda \cdot GAP＿Col＿Prox + (1 - \lambda) \cdot Cosine＿Similarity
 $$</p>
 <ul>
-<li>$\lambda$：權重，可實驗（如 0.5, 0.7）</li>
+<li>$\lambda$：權重</li>
 <li>GAP 捕捉共現結構，詞向量補足語意距離</li>
 </ul>
 <p>用這個混合矩陣再進行 GAP 排序或分群，更穩健。</p>
-<hr>
-<h2 id="-3-或者導入-詞典--知識圖譜-強化語意結構">✅ 3️⃣ 或者導入 <strong>詞典 / 知識圖譜</strong> 強化語意結構<a hidden class="anchor" aria-hidden="true" href="#-3-或者導入-詞典--知識圖譜-強化語意結構">#</a></h2>
+<p>3️⃣ 或者導入 <strong>詞典 / 知識圖譜</strong> 強化語意結構</p>
 <p>例如：</p>
 <ul>
 <li>WordNet：若兩詞為同義/上位關係，加強連結</li>
@@ -280,12 +271,13 @@ $$</p>
 </ul>
 <p>這可額外微調 GAP 結果，修正不合理的群組。</p>
 <hr>
-<h2 id="-這樣做的貢獻">✅ 這樣做的貢獻：<a hidden class="anchor" aria-hidden="true" href="#-這樣做的貢獻">#</a></h2>
 <p>你可以主張這是一種：</p>
 <blockquote>
-<p><strong>GAP-informed + Semantics-enhanced Topic Modeling</strong>
-或提出一個混合結構：
-<strong>統計共現 × 語意相似的雙層結構，用於建構更合理的主題先驗</strong></p>
+<p><strong>GAP-informed + Semantics-enhanced Topic Modeling</strong></p>
+</blockquote>
+<p>或提出一個混合結構：</p>
+<blockquote>
+<p><strong>統計共現 × 語意相似的雙層結構，用於建構更合理的主題先驗</strong></p>
 </blockquote>
 
 
@@ -296,10 +288,10 @@ $$</p>
       <li><a href="http://localhost:1313/tags/meeting/">Meeting</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="http://localhost:1313/posts/20250710_meeting/">
+  <a class="next" href="http://localhost:1313/posts/20250707_lda%E7%9A%84%E7%90%86%E8%A7%A3%E8%88%87ai%E7%9A%84%E4%BF%AE%E6%AD%A3/">
     <span class="title">Next »</span>
     <br>
-    <span>20250710 Meeting</span>
+    <span>20250707 LDA的理解與AI的修正</span>
   </a>
 </nav>
 
