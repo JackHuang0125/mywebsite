@@ -1,17 +1,17 @@
 +++
-title = "Statistical Computing HW_0320"
+title = "Monte Carlo Integration"
 date = 2025-03-18T11:00:00+08:00
 draft =  false
-tags = ["Monte Carlo Integration"]
-categories = ["Homework"]
+tags = ["Learninig Record"]
+categories = ["Learning"]
 
 [cover]
-    image =  "Ada.webp"
-    alt = '20250307'
-    caption = 'Ada.webp by ChatGpt 4o'
+    image =  "0318.png"
+    alt = '20250318'
+    caption = '0318.png from Wikipedia'
 +++
 
-#### This is homework
+#### 這是給自己的一份學習紀錄，以免日子久了忘記這是甚麼理論XD
 
 # (1)
 已知：
