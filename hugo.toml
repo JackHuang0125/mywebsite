@@ -18,7 +18,7 @@ theme = "PaperMo"
     name = "Archive"
     url = "archives"
     weight = 1
-   
+
     [[menu.main]]
     name = "Search"
     url = "search"
@@ -28,11 +28,10 @@ theme = "PaperMo"
     name = "YahooStock"
     url = "https://tw.stock.yahoo.com/"
 
-
 [params]
     ShowShareButtons = true
     ShowBreadCrumbs = true
-    ShowReadingTime = true  
+    ShowReadingTime = true
     ShowPostNavLinks = true
     ShowCodeCopyButtons = true
     ShowAllPagesInArchive = true
@@ -41,7 +40,7 @@ theme = "PaperMo"
 
     math = true
     defaultTheme = "auto"
-    
+
     [params.profileMode]
     enabled = true
     title = "Hi There" # optional default will be site title
@@ -49,7 +48,7 @@ theme = "PaperMo"
     imageUrl = "ID.jpg" # optional
     imageWidth = 200 # custom size
     imageHeight = 200 # custom size
-    
+
     [[params.socialIcons]]
     name = "linkedin"
     url = "https://www.linkedin.com/in/yang611211106/"
@@ -57,7 +56,7 @@ theme = "PaperMo"
     [[params.socialIcons]]
     name = "kaggle"
     url = "https://www.kaggle.com/chengyannng"
-    
+
     [[params.socialIcons]]
     name = "github"
     url = "https://github.com/JackHuang0125/psychic-spoon"
@@ -66,22 +65,11 @@ theme = "PaperMo"
     name = "instagram"
     url = "https://www.instagram.com/imjack_huang/"
 
-
-    [[params.buttons]]
-    name = "Archive"
-    url = "/archive"
-    [[params.buttons]]
-    name = "Github"
-    url = "https://github.com/"
-
-
-
     [params.cover]
     linkFullImages = true
 
+    [params.fuseOpts]
+    threshold = 0.1
+
 [outputs]
-home = [ "HTML", "RSS", "JSON" ]
-
-
-
-
+home = ["HTML", "RSS", "JSON"]
