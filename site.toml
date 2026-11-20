@@ -1,0 +1,47 @@
+# 網站設定（取代原本的 hugo.toml）
+title = "Yang's World"
+language = "zh-TW"
+# 本機預覽時可留空；如果之後要部署到其他地方，填上完整網址（例如 https://example.com）
+base_url = ""
+posts_per_page = 10
+words_per_minute = 213   # 計算閱讀時間用（與 Hugo 相同）
+
+[profile]
+title = "Hi There"
+subtitle = "Welcome to my blog! I'm a beginner in data analysis."
+image = "ID.jpg"
+image_width = 200
+image_height = 200
+
+# 選單，依序顯示
+[[menu]]
+name = "Archive"
+url = "/archives/"
+
+[[menu]]
+name = "Categories"
+url = "/categories/"
+
+[[menu]]
+name = "Tags"
+url = "/tags/"
+
+[[menu]]
+name = "Search"
+url = "/search/"
+
+[[menu]]
+name = "YahooStock"
+url = "https://tw.stock.yahoo.com/"
+
+[[social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/yang611211106/"
+
+[[social]]
+name = "kaggle"
+url = "https://www.kaggle.com/chengyannng"
+
+[[social]]
+name = "github"
+url = "https://github.com/JackHuang0125/psychic-spoon"
